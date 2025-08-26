@@ -200,27 +200,63 @@ input:focus, select:focus, textarea:focus{outline:3px solid var(--ring); border-
   .callout-row{flex-direction:column; align-items:stretch}
 }
 
-/* Footer */
-.site-footer{border-top:1px solid #eef0f6; padding:28px 0; background:#fff}
-.footer-inner{display:grid; gap:18px; grid-template-columns:1fr 1fr 1fr; align-items:start}
-.footer-nav{display:grid; gap:8px}
-.legal .block{display:block; margin-top:6px}
-@media (max-width:760px){.footer-inner{grid-template-columns:1fr}}
+/* Professional footer */
+.site-footer.pro{
+  background: #fff;
+  border-top: 1px solid #eef0f6;
+  position: relative;
+}
+.site-footer.pro::before{
+  content:"";
+  position:absolute; inset:0 0 auto 0; height:8px;
+  background: linear-gradient(90deg, rgba(9,162,255,.15), rgba(11,19,64,.08));
+}
+.footer-inner{
+  display:grid; gap:28px;
+  grid-template-columns: 1.4fr 1fr 1.6fr;
+  align-items:start;
+  padding-top: 36px;
+}
+@media (max-width:900px){
+  .footer-inner{grid-template-columns:1fr; padding-top:28px}
+}
 
-/* --- FINAL OVERRIDES (keep at the very end) --- */
-/* Outline buttons must always show text on light backgrounds */
-.btn-outline,
-.card .btn-outline,
-.lead-form .btn-outline{
-  background:#fff !important;
-  color:var(--navy) !important;
-  border:2px solid #2c4073 !important;
+/* Brand */
+.footer-logo{font-weight:800; font-size:20px; color:var(--navy); margin-bottom:6px}
+.footer-mail{display:inline-block; margin-bottom:6px; color:var(--navy); text-decoration:none; font-weight:600}
+.footer-mail:hover{text-decoration:underline}
+.footer-note{margin:6px 0 12px; color:var(--muted)}
+
+/* Social */
+.footer-social a{
+  display:inline-flex; align-items:center; gap:8px;
+  color:var(--ink); text-decoration:none; font-weight:600;
+  padding:8px 10px; border:1px solid #eef0f6; border-radius:10px;
 }
-.btn-outline:hover,
-.card .btn-outline:hover,
-.lead-form .btn-outline:hover{
-  background:#eef2ff !important;
+.footer-social a:hover{background:#f6f8fd}
+
+/* Links */
+.footer-links h4{
+  margin:0 0 8px; color:var(--navy); font-size:14px; letter-spacing:.02em;
+  text-transform:uppercase
 }
+.footer-links ul{list-style:none; padding:0; margin:0; display:grid; gap:8px}
+.footer-links a{
+  color:#2b2f47; text-decoration:none;
+}
+.footer-links a:hover{color:var(--navy); text-decoration:underline; text-underline-offset:2px}
+
+/* Legal */
+.footer-legal{justify-self:end; max-width:520px}
+@media (max-width:900px){.footer-legal{justify-self:start}}
+.copyright{color:#2b2f47; font-weight:700; margin-bottom:8px}
+.disclaimer{margin:0; color:var(--muted); line-height:1.5}
+
+/* Subtle bottom fade */
+.site-footer.pro{
+  box-shadow: 0 -8px 40px rgba(10,18,63,.05) inset;
+}
+
 
 /* Remove old WhatsApp bubble if still present */
 .wa-bubble{display:none}
