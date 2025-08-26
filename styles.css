@@ -42,9 +42,6 @@ body{
   display:grid; place-items:center; width:32px; height:32px; border-radius:8px; background:var(--navy); color:#fff; font-weight:800
 }
 .brand__text{font-size:18px}
-.lang-switch{display:flex; gap:8px; align-items:center; margin-left:auto; margin-right:12px}
-.lang-switch a{color:var(--muted); text-decoration:none; font-weight:600; font-size:14px}
-.lang-switch a[aria-current="page"]{color:var(--navy)}
 .nav{display:flex; gap:18px; align-items:center}
 .nav a{color:var(--ink); text-decoration:none; font-weight:600}
 .nav a:hover{color:var(--accent)}
