@@ -252,3 +252,18 @@ label.consent a{color:var(--navy); text-decoration:underline}
 
 /* Remove any leftover WhatsApp bubble */
 .wa-bubble{display:none}
+
+/* Subtitles inside Featured Events */
+.sub-title {
+  margin: 40px 0 16px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: left;
+  border-left: 4px solid var(--accent);
+  padding-left: 10px;
+}
+
+.sub-title:first-of-type {
+  margin-top: 10px; /* smaller spacing for first row */
+}
