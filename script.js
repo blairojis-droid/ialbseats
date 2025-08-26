@@ -34,7 +34,10 @@ const quickInput = document.getElementById('quickEvent');
 if (quickBtn && quickInput && eventField) {
   quickBtn.addEventListener('click', () => {
     const value = quickInput.value.trim();
-    if (!value) { quickInput.focus(); return; }
+    if (!value) {
+      quickInput.focus();
+      return;
+    }
     eventField.value = value;
     location.hash = '#contact';
     eventField.focus();
