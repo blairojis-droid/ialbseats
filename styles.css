@@ -127,6 +127,16 @@ body{
 .muted{color:var(--muted); margin:0}
 .card-actions{display:flex; gap:8px}
 
+/* Fix for request button visibility inside cards */
+.card .btn-outline{
+  color:var(--navy);
+  border-color:#2c4073;
+  background:#fff;
+}
+.card .btn-outline:hover{
+  background:#eef2ff;
+}
+
 /* Steps & Why */
 .step, .why{
   text-align:center; border:1px solid #eef0f6; border-radius:16px; padding:22px; background:#fff
@@ -172,11 +182,7 @@ input:focus, select:focus, textarea:focus{outline:3px solid var(--ring); border-
 .legal .block{display:block; margin-top:6px}
 @media (max-width:760px){.footer-inner{grid-template-columns:1fr}}
 
-/* WhatsApp bubble */
+/* WhatsApp bubble – no longer used */
 .wa-bubble{
-  position:fixed; right:14px; bottom:14px; z-index:40;
-  display:grid; place-items:center; width:54px; height:54px; border-radius:50%;
-  background:#25D366; color:#fff; box-shadow:0 10px 24px rgba(6, 90, 37, .35);
-  transition:transform .15s ease;
+  display:none;
 }
-.wa-bubble:hover{transform:translateY(-2px)}
