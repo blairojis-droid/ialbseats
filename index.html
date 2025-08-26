@@ -332,6 +332,12 @@
             Additional Notes
             <textarea name="notes" rows="4" placeholder="Seating preference, timeframe, special requests…"></textarea>
           </label>
+
+          <!-- Legal consent (required) -->
+          <label class="span-2 consent">
+            <input required type="checkbox" name="consent" value="yes" />
+            <span>I agree to the <a href="/privacy.html">Privacy Policy</a> and consent to be contacted regarding my request.</span>
+          </label>
         </div>
 
         <div class="form-actions">
@@ -340,8 +346,8 @@
         </div>
 
         <p class="form-note">
-          By submitting, you agree that prices may be above face value (secondary market).
-          See our <a href="/privacy.html">Privacy Policy</a>.
+          By submitting this form you confirm that the information provided is accurate and you consent to its processing in accordance with our
+          <a href="/privacy.html">Privacy Policy</a>. Secondary-market prices may be above face value.
         </p>
       </form>
     </div>
@@ -380,6 +386,7 @@
     <select name="quantity"><option>1</option></select>
     <input type="text" name="budget" />
     <textarea name="notes"></textarea>
+    <input type="checkbox" name="consent" />
     <input type="hidden" name="form_source" value="ialbseats.com" />
   </form>
 
@@ -388,7 +395,7 @@
     const mailtoBtn = document.getElementById('mailtoBtn');
     if (mailtoBtn) {
       mailtoBtn.addEventListener('click', () => {
-        const qs = n => (document.querySelector(`[name="${n}"]`) || {});
+        const qs = n => (document.querySelector(\`[name="\${n}"]\`) || {});
         const val = n => (qs(n).value || '').toString().trim();
 
         const fields = {
@@ -402,20 +409,20 @@
           notes: val('notes')
         };
 
-        const subject = `Ticket request — ${fields.event || 'New inquiry'}`;
+        const subject = \`Ticket request — \${fields.event || 'New inquiry'}\`;
         const body =
-`Name: ${fields.name}
-Email: ${fields.email}
-Phone: ${fields.phone}
-Event/Artist: ${fields.event}
-Date/City/Venue: ${fields.details}
-Quantity: ${fields.quantity}
-Budget: ${fields.budget}
+\`Name: \${fields.name}
+Email: \${fields.email}
+Phone: \${fields.phone}
+Event/Artist: \${fields.event}
+Date/City/Venue: \${fields.details}
+Quantity: \${fields.quantity}
+Budget: \${fields.budget}
 
 Notes:
-${fields.notes}`;
+\${fields.notes}\`;
 
-        const url = `mailto:info@ialbseats.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const url = \`mailto:info@ialbseats.com?subject=\${encodeURIComponent(subject)}&body=\${encodeURIComponent(body)}\`;
         if (url.length < 1800) {
           window.location.href = url;
         } else {
