@@ -207,3 +207,176 @@
           <h3>Get a quote</h3>
           <p>We’ll find the best available options and send you a quote.</p>
         </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <h3>Confirm &amp; receive</h3>
+          <p>Secure payment and instant delivery to your phone or email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Pricing ======= -->
+  <section id="pricing" class="section soft">
+    <div class="container">
+      <h2 class="section-title">Pricing &amp; Fees</h2>
+      <p class="lead">
+        As service providers in the secondary market, our ticket prices reflect current market demand and availability.
+        Prices start from the amounts shown and may vary based on seating location, demand, and timing.
+      </p>
+      <p class="guarantee">We offer full refunds if your event is canceled and not rescheduled. Your purchase is protected with our guarantee.</p>
+    </div>
+  </section>
+
+  <!-- ======= FAQ ======= -->
+  <section id="faq" class="section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+
+      <details class="faq">
+        <summary>How do you deliver tickets?</summary>
+        <div class="faq-body">Most tickets are delivered via secure mobile transfer or e-tickets. Instructions are provided with your order.</div>
+      </details>
+
+      <details class="faq">
+        <summary>Do you serve international buyers?</summary>
+        <div class="faq-body">Absolutely — we regularly assist international clients and provide clear delivery instructions.</div>
+      </details>
+
+      <details class="faq">
+        <summary>How quickly can you find last-minute tickets?</summary>
+        <div class="faq-body">Often the same day. <strong>Average response time: under 1 hour</strong>.</div>
+      </details>
+
+      <details class="faq">
+        <summary>Do you handle group orders?</summary>
+        <div class="faq-body">Yes, we can source adjacent or nearby seats for groups. Add this in your request.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ======= Contact Form ======= -->
+  <section id="contact" class="section soft">
+    <div class="container">
+      <h2 class="section-title">Get Tickets / Request a Quote</h2>
+      <p class="muted" style="text-align:center;margin:-6px 0 14px"><strong>Average response time: under 1 hour.</strong></p>
+
+      <form class="lead-form"
+            name="request"
+            method="POST"
+            action="/success.html"
+            data-netlify="true"
+            netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="request" />
+        <input type="hidden" name="form_source" value="ialbseats.com" />
+        <p class="hidden">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <div class="form-grid">
+          <label>
+            Name *
+            <input required type="text" name="name" autocomplete="name" />
+          </label>
+
+          <label>
+            Email *
+            <input required type="email" name="email" autocomplete="email" />
+          </label>
+
+          <label>
+            Phone/WhatsApp (optional)
+            <input type="tel" name="phone" placeholder="+34 612 345 678" />
+          </label>
+
+          <label>
+            Event/Artist *
+            <input required type="text" name="event" id="eventField" />
+          </label>
+
+          <label>
+            Date/City *
+            <input required type="text" name="details" placeholder="e.g., Oct 2025 — London" />
+          </label>
+
+          <label>
+            Quantity *
+            <select required name="quantity">
+              <option value="" disabled selected>Select quantity</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option>
+            </select>
+          </label>
+
+          <label>
+            Budget (optional)
+            <input type="text" name="budget" placeholder="e.g., €200 per ticket" />
+          </label>
+
+          <label class="span-2">
+            Additional Notes
+            <textarea name="notes" rows="4" placeholder="Seating preference, timeframe, special requests…"></textarea>
+          </label>
+
+          <!-- Legal consent (required) -->
+          <label class="span-2 consent">
+            <input required type="checkbox" name="consent" value="yes" />
+            <span>I agree to the <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Service</a>, and consent to be contacted regarding my request.</span>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Send Request</button>
+          <button type="button" id="mailtoBtn" class="btn btn-outline">Email This Request</button>
+        </div>
+
+        <p class="form-note">
+          By submitting this form you confirm that the information provided is accurate and you consent to its processing in accordance with our
+          <a href="/privacy.html">Privacy Policy</a>. Secondary-market prices may be above face value.
+        </p>
+      </form>
+
+      <!-- Trust badges -->
+      <p class="muted" style="text-align:center;margin-top:12px">
+        🔒 Secure quotes &nbsp; • &nbsp; ⚡ Fast delivery &nbsp; • &nbsp; 💸 Refund guarantee
+      </p>
+    </div>
+  </section>
+
+  <!-- ======= Footer ======= -->
+  <footer class="site-footer pro">
+    <div class="container footer-inner">
+      <div class="footer-col footer-brand">
+        <div class="footer-logo">ialbseats</div>
+        <a class="footer-mail" href="mailto:info@ialbseats.com">info@ialbseats.com</a>
+        <p class="footer-note">Independent global ticket service provider — we work worldwide.</p>
+
+        <div class="footer-social">
+          <a href="https://instagram.com/ialbseats" target="_blank" rel="noopener">@ialbseats</a>
+        </div>
+      </div>
+
+      <div class="footer-col footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-legal">
+        <div class="copyright">© <span id="year"></span> ialbseats</div>
+        <p class="disclaimer">
+          ialbseats is an independent global ticket service provider and is not affiliated with artists, teams, venues, or promoters.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile CTA -->
+  <a href="#contact"
