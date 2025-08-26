@@ -84,6 +84,20 @@ body{
 .btn-primary{background:var(--accent); color:#07233a}
 .btn-primary:hover{filter:brightness(1.05)}
 
+/* Outline buttons always visible */
+.btn-outline,
+.card .btn-outline,
+.lead-form .btn-outline{
+  background:#fff !important;
+  color:var(--navy) !important;
+  border:2px solid #2c4073 !important;
+}
+.btn-outline:hover,
+.card .btn-outline:hover,
+.lead-form .btn-outline:hover{
+  background:#eef2ff !important;
+}
+
 /* Trustbar */
 .trustbar{background:#fff}
 .trustbar-inner{
@@ -112,16 +126,12 @@ body{
   padding:18px; box-shadow:0 6px 24px rgba(10,18,63,.05)
 }
 .card h3{margin:6px 0 6px; font-size:20px; color:var(--navy)}
-
-/* Badge flows above the title so it never overlaps */
 .badge{
-  position:static;
   display:inline-flex; align-items:center; gap:6px;
   margin-bottom:8px;
   background:#ffeded; color:#d12a2a; font-weight:800;
   padding:4px 8px; border-radius:999px; font-size:12px
 }
-
 .price{margin:8px 0 10px; color:#0f5132}
 .muted{color:var(--muted); margin:0}
 .card-actions{display:flex; gap:8px; margin-top:8px}
@@ -152,8 +162,12 @@ body{
 }
 .form-grid .span-2{grid-column:1/-1}
 label{display:flex; flex-direction:column; gap:6px; font-weight:700; color:var(--navy)}
+input, select, textarea{
+  border:1px solid #d8def0; border-radius:10px; padding:12px; font:inherit; color:var(--ink); background:#fff
+}
+input:focus, select:focus, textarea:focus{outline:3px solid var(--ring); border-color:var(--accent)}
 
-/* Consent row stays together */
+/* Consent row aligned */
 label.consent{
   flex-direction:row;
   align-items:center;
@@ -161,17 +175,10 @@ label.consent{
   font-weight:700;
   cursor:pointer;
 }
-label.consent input{
-  width:18px; height:18px; margin:0;
-  accent-color:var(--accent);
-}
+label.consent input{width:18px; height:18px; margin:0; accent-color:var(--accent);}
 label.consent span{flex:1}
 label.consent a{color:var(--navy); text-decoration:underline}
 
-input, select, textarea{
-  border:1px solid #d8def0; border-radius:10px; padding:12px; font:inherit; color:var(--ink); background:#fff
-}
-input:focus, select:focus, textarea:focus{outline:3px solid var(--ring); border-color:var(--accent)}
 .form-actions{display:flex; gap:10px; margin-top:6px}
 .form-note{color:var(--muted); margin:10px 0 0}
 .hidden{display:none}
@@ -180,7 +187,7 @@ input:focus, select:focus, textarea:focus{outline:3px solid var(--ring); border-
   .form-grid{grid-template-columns:1fr}
 }
 
-/* Callout: request any event, anywhere */
+/* Callout */
 .callout{
   margin-top:28px;
   background:#fff;
@@ -200,11 +207,12 @@ input:focus, select:focus, textarea:focus{outline:3px solid var(--ring); border-
   .callout-row{flex-direction:column; align-items:stretch}
 }
 
-/* Professional footer */
+/* Footer */
 .site-footer.pro{
   background: #fff;
   border-top: 1px solid #eef0f6;
   position: relative;
+  box-shadow: 0 -8px 40px rgba(10,18,63,.05) inset;
 }
 .site-footer.pro::before{
   content:"";
@@ -220,43 +228,24 @@ input:focus, select:focus, textarea:focus{outline:3px solid var(--ring); border-
 @media (max-width:900px){
   .footer-inner{grid-template-columns:1fr; padding-top:28px}
 }
-
-/* Brand */
 .footer-logo{font-weight:800; font-size:20px; color:var(--navy); margin-bottom:6px}
 .footer-mail{display:inline-block; margin-bottom:6px; color:var(--navy); text-decoration:none; font-weight:600}
 .footer-mail:hover{text-decoration:underline}
-.footer-note{margin:6px 0 12px; color:var(--muted)}
-
-/* Social */
+.footer-note{margin:6px 0 12px; color:var(--muted); font-size:14px}
 .footer-social a{
   display:inline-flex; align-items:center; gap:8px;
   color:var(--ink); text-decoration:none; font-weight:600;
-  padding:8px 10px; border:1px solid #eef0f6; border-radius:10px;
+  padding:6px 10px; border:1px solid #eef0f6; border-radius:8px; font-size:14px;
 }
-.footer-social a:hover{background:#f6f8fd}
-
-/* Links */
+.footer-social a:hover{background:#f6f8fd; color:var(--navy)}
 .footer-links h4{
-  margin:0 0 8px; color:var(--navy); font-size:14px; letter-spacing:.02em;
-  text-transform:uppercase
+  margin:0 0 10px; color:var(--navy); font-size:13px; letter-spacing:.05em;
+  text-transform:uppercase; font-weight:700;
 }
-.footer-links ul{list-style:none; padding:0; margin:0; display:grid; gap:8px}
-.footer-links a{
-  color:#2b2f47; text-decoration:none;
-}
+.footer-links ul{list-style:none; padding:0; margin:0; display:grid; gap:6px}
+.footer-links a{color:var(--muted); text-decoration:none; font-size:14px; font-weight:500}
 .footer-links a:hover{color:var(--navy); text-decoration:underline; text-underline-offset:2px}
-
-/* Legal */
-.footer-legal{justify-self:end; max-width:520px}
+.footer-legal{justify-self:end; max-width:520px; font-size:14px}
 @media (max-width:900px){.footer-legal{justify-self:start}}
-.copyright{color:#2b2f47; font-weight:700; margin-bottom:8px}
-.disclaimer{margin:0; color:var(--muted); line-height:1.5}
-
-/* Subtle bottom fade */
-.site-footer.pro{
-  box-shadow: 0 -8px 40px rgba(10,18,63,.05) inset;
-}
-
-
-/* Remove old WhatsApp bubble if still present */
-.wa-bubble{display:none}
+.copyright{color:var(--navy); font-weight:700; margin-bottom:8px}
+.disclaimer{margin:0; color:var(--muted); line-height:1.5; font-size:13px}
