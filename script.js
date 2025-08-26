@@ -1,6 +1,9 @@
-/* Mobile nav toggle */
+/* ------------------------
+   Mobile Navigation Toggle
+------------------------- */
 const toggle = document.querySelector('.nav-toggle');
 const nav = document.querySelector('.nav');
+
 if (toggle && nav) {
   toggle.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
@@ -16,21 +19,23 @@ if (toggle && nav) {
   });
 }
 
-/* Prefill “Event/Artist” when clicking Request buttons in cards */
-const links = document.querySelectorAll('[data-prefill]');
+/* ------------------------
+   Prefill Event Field
+------------------------- */
 const eventField = document.getElementById('eventField');
-links.forEach(a => {
+document.querySelectorAll('[data-prefill]').forEach(a => {
   a.addEventListener('click', () => {
     const value = a.getAttribute('data-prefill');
-    if (eventField && value) {
-      eventField.value = value;
-    }
+    if (eventField && value) eventField.value = value;
   });
 });
 
-/* Quick Request widget → prefill form and scroll to #contact */
+/* ------------------------
+   Quick Request Widget
+------------------------- */
 const quickBtn = document.getElementById('quickRequestBtn');
 const quickInput = document.getElementById('quickEvent');
+
 if (quickBtn && quickInput && eventField) {
   quickBtn.addEventListener('click', () => {
     const value = quickInput.value.trim();
@@ -44,12 +49,15 @@ if (quickBtn && quickInput && eventField) {
   });
 }
 
-/* Mailto fallback button – build an email from form values */
+/* ------------------------
+   Mailto Fallback Button
+------------------------- */
 const mailtoBtn = document.getElementById('mailtoBtn');
+
 if (mailtoBtn) {
   mailtoBtn.addEventListener('click', () => {
-    const qs = n => (document.querySelector(`[name="${n}"]`) || {});
-    const val = n => (qs(n).value || '').toString().trim();
+    const qs = n => document.querySelector(`[name="${n}"]`);
+    const val = n => (qs(n)?.value || '').trim();
 
     const fields = {
       name: val('name'),
@@ -63,29 +71,33 @@ if (mailtoBtn) {
     };
 
     const subject = `Ticket request — ${fields.event || 'New inquiry'}`;
-    const body =
-`Name: ${fields.name}
+    const body = `
+Name: ${fields.name}
 Email: ${fields.email}
 Phone: ${fields.phone}
 Event/Artist: ${fields.event}
-Date/City/Venue: ${fields.details}
+Date/City: ${fields.details}
 Quantity: ${fields.quantity}
 Budget: ${fields.budget}
 
 Notes:
-${fields.notes}`;
+${fields.notes}`.trim();
 
     const url = `mailto:info@ialbseats.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Mailto links break if too long (~2kb limit). Fallback to normal submit.
     if (url.length < 1800) {
       window.location.href = url;
     } else {
-      alert('Message is too long for your email app. We’ll submit via the form instead.');
+      alert('Message too long for your email app. Submitting via form instead.');
       const form = document.querySelector('form[name="request"]');
       if (form) form.requestSubmit();
     }
   });
 }
 
-/* Current year in footer */
+/* ------------------------
+   Current Year in Footer
+------------------------- */
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
