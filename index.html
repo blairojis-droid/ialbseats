@@ -283,6 +283,7 @@
             data-netlify="true"
             netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="request" />
+        <input type="hidden" name="form_source" value="ialbseats.com" />
         <p class="hidden">
           <label>Don’t fill this out: <input name="bot-field" /></label>
         </p>
@@ -335,6 +336,7 @@
 
         <div class="form-actions">
           <button class="btn btn-primary" type="submit">Send Request</button>
+          <button type="button" id="mailtoBtn" class="btn btn-outline">Email This Request</button>
         </div>
 
         <p class="form-note">
@@ -378,6 +380,51 @@
     <select name="quantity"><option>1</option></select>
     <input type="text" name="budget" />
     <textarea name="notes"></textarea>
+    <input type="hidden" name="form_source" value="ialbseats.com" />
   </form>
+
+  <!-- Mailto helper -->
+  <script>
+    const mailtoBtn = document.getElementById('mailtoBtn');
+    if (mailtoBtn) {
+      mailtoBtn.addEventListener('click', () => {
+        const qs = n => (document.querySelector(`[name="${n}"]`) || {});
+        const val = n => (qs(n).value || '').toString().trim();
+
+        const fields = {
+          name: val('name'),
+          email: val('email'),
+          phone: val('phone'),
+          event: val('event'),
+          details: val('details'),
+          quantity: val('quantity'),
+          budget: val('budget'),
+          notes: val('notes')
+        };
+
+        const subject = `Ticket request — ${fields.event || 'New inquiry'}`;
+        const body =
+`Name: ${fields.name}
+Email: ${fields.email}
+Phone: ${fields.phone}
+Event/Artist: ${fields.event}
+Date/City/Venue: ${fields.details}
+Quantity: ${fields.quantity}
+Budget: ${fields.budget}
+
+Notes:
+${fields.notes}`;
+
+        const url = `mailto:info@ialbseats.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        if (url.length < 1800) {
+          window.location.href = url;
+        } else {
+          alert('Message is too long for your email app. We’ll submit via the form instead.');
+          const form = document.querySelector('form[name="request"]');
+          if (form) form.requestSubmit();
+        }
+      });
+    }
+  </script>
 </body>
 </html>
