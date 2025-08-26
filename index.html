@@ -3,215 +3,368 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ialbseats — Sold‑Out Tickets, Secured Fast</title>
-  <meta name="description" content="Find and request sold‑out tickets to concerts and sports. Fast, verified, and handled by ialbseats." />
-  <meta property="og:title" content="ialbseats — Sold‑Out Tickets, Secured Fast" />
-  <meta property="og:description" content="Find and request sold‑out tickets to concerts and sports. Fast, verified, and handled by ialbseats." />
+  <title>ialbseats — Sold-Out Tickets, Secured Fast</title>
+  <meta name="description" content="Find last-minute & sold-out tickets. Trusted resellers, secure delivery, fast support. Get a quote now.">
+  <link rel="canonical" href="https://ialbseats.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ialbseats — Sold-Out Tickets, Secured Fast" />
+  <meta property="og:description" content="Find last-minute & sold-out tickets. Trusted resellers, secure delivery, fast support." />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0a1340" />
-  <link rel="icon" href="/favicon.ico" />
-  <style>
-    :root{
-      --navy:#0a1340;   /* deep navy */
-      --ink:#0f172a;    /* near-black text */
-      --white:#ffffff;
-      --smoke:#f6f7fb;
-      --accent:#7aa2ff; /* soft blue accent */
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--ink);
-      background:var(--smoke);
-    }
-    .container{width:min(1100px, 92%); margin-inline:auto}
-    header{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter:saturate(180%) blur(8px);
-      background:color-mix(in srgb, var(--white) 70%, transparent);
-      border-bottom:1px solid #e8ebf6;
-    }
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
-    .brand .mark{width:34px; height:34px; border-radius:10px; background:linear-gradient(135deg,var(--navy),#1d2a6b); display:grid; place-items:center; color:#fff; font-weight:900}
-    .nav a{color:var(--ink); text-decoration:none; font-weight:600; margin-left:18px}
-    .btn{display:inline-block; padding:10px 16px; border-radius:12px; border:1px solid #dfe3f5; background:#fff; font-weight:700}
-    .btn.primary{background:var(--navy); color:#fff; border-color:var(--navy)}
+  <meta property="og:url" content="https://ialbseats.com/" />
+  <meta property="og:image" content="https://ialbseats.com/og-image.png" />
 
-    .hero{background:radial-gradient(90% 120% at 100% -10%, #c8d6ff 0, #f6f7fb 60%, #f6f7fb 100%)}
-    .hero .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center; padding:64px 0}
-    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid #dfe3f5; background:#fff; font-size:12px; font-weight:700}
-    h1{font-size:clamp(34px, 4.2vw, 56px); line-height:1.05; margin:14px 0 10px; color:var(--navy)}
-    .lead{font-size:clamp(16px,1.4vw,20px); opacity:.9}
-    .cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ialbseats — Sold-Out Tickets, Secured Fast" />
+  <meta name="twitter:description" content="Find last-minute & sold-out tickets. Trusted resellers, secure delivery, fast support." />
+  <meta name="twitter:image" content="https://ialbseats.com/og-image.png" />
 
-    .card-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:42px 0}
-    .card{background:#fff; border:1px solid #e8ebf6; border-radius:18px; padding:18px}
-    .card h3{margin:6px 0 8px}
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b1340'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-size='36' font-family='system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial' fill='%23fff'%3Ei%3C/text%3E%3C/svg%3E">
 
-    .strip{background:var(--navy); color:#fff}
-    .strip .wrap{display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:36px 0}
-    .strip .box{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15); border-radius:16px; padding:18px}
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 
-    form{background:#fff; border:1px solid #e8ebf6; border-radius:16px; padding:18px; display:grid; gap:12px}
-    label{font-weight:700; font-size:14px}
-    input, select, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid #dfe3f5; background:#fbfcff}
-    textarea{min-height:110px}
-    .muted{opacity:.75; font-size:14px}
-
-    footer{border-top:1px solid #e8ebf6; padding:26px 0; font-size:14px; color:#4b5768}
-
-    @media (max-width:900px){
-      .hero .wrap{grid-template-columns:1fr}
-      .card-grid{grid-template-columns:1fr}
-      .strip .wrap{grid-template-columns:1fr}
-    }
-  </style>
+  <!-- JSON-LD Organization -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"ialbseats",
+    "url":"https://ialbseats.com/",
+    "email":"info@ialbseats.com",
+    "sameAs":["https://instagram.com/ialbseats"]
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="mark">IA</div>
-        <span>ialbseats</span>
-      </div>
-      <nav>
-        <a href="#how">How it works</a>
-        <a href="#request">Request</a>
-        <a href="#contact" class="btn">Contact</a>
+  <!-- ======= Header ======= -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="ialbseats home">
+        <span class="brand__logo" aria-hidden="true">i</span>
+        <span class="brand__text">ialbseats</span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <nav id="primary-nav" class="nav">
+        <a href="#top">Home</a>
+        <a href="#how">How It Works</a>
+        <a href="#events">Events</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a class="cta" href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
+  <!-- ======= Hero ======= -->
   <section class="hero">
-    <div class="container wrap">
-      <div>
-        <span class="badge">⚡ Sold‑Out? We get you in.</span>
-        <h1>Find last‑minute tickets to in‑demand events.</h1>
-        <p class="lead">Concerts, football, F1, festivals. We verify barcodes and deliver fast—so you can stop searching marketplaces and start making plans.</p>
-        <div class="cta">
-          <a class="btn primary" href="#request">Request tickets</a>
-          <a class="btn" href="#how">See how it works</a>
+    <div class="container hero-inner">
+      <h1>Find Last-Minute &amp; Sold-Out Tickets</h1>
+      <p class="hero-sub">Trusted resellers. Secure delivery. Fast support.</p>
+
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://wa.me/1234567890" target="_blank" rel="noopener">WhatsApp Chat</a>
+        <a class="btn btn-outline" href="#contact">Request Tickets</a>
+      </div>
+
+      <div class="search-wrap">
+        <label class="sr-only" for="eventSearch">Search events</label>
+        <input id="eventSearch" type="search" placeholder="Search events..." autocomplete="off" />
+      </div>
+    </div>
+
+    <div class="trustbar">
+      <div class="container trustbar-inner">
+        <div class="trust-item">
+          <span class="check" aria-hidden="true">✓</span>
+          Verified resellers
         </div>
-        <p class="muted">Secondary market pricing • Instant DM confirmation • Safe transfers</p>
-      </div>
-      <div>
-        <div class="card">
-          <h3>Quick Request</h3>
-          <form id="quick-form">
-            <label for="event">Event</label>
-            <input id="event" name="event" placeholder="e.g., Oasis — Heaton Park, 11 Jul 2025" required>
-            <label for="qty">Qty & Budget</label>
-            <input id="qty" name="qty" placeholder="2 tickets • up to £350 each" required>
-            <label for="notes">Notes</label>
-            <textarea id="notes" name="notes" placeholder="Hard NO obstructed view. Prefer front half, aisle if possible."></textarea>
-            <button class="btn primary" type="submit">Send via Email</button>
-            <p class="muted">Or DM us on Instagram: <strong>@ialbseats</strong></p>
-          </form>
+        <div class="trust-item">
+          <span class="lock" aria-hidden="true">🔒</span>
+          Secure checkout
+        </div>
+        <div class="trust-item">
+          <span class="phone" aria-hidden="true">📞</span>
+          24/7 support
+        </div>
+        <div class="trust-item">
+          <span class="zap" aria-hidden="true">⚡</span>
+          Instant delivery
         </div>
       </div>
     </div>
   </section>
 
-  <section class="container" id="how">
-    <div class="card-grid">
-      <div class="card">
-        <h3>1) Tell us what you need</h3>
-        <p>Share event, section or budget. We search verified sources and private networks.</p>
-      </div>
-      <div class="card">
-        <h3>2) We secure your seats</h3>
-        <p>We quote secondary prices and lock inventory. You approve before paying.</p>
-      </div>
-      <div class="card">
-        <h3>3) Safe delivery</h3>
-        <p>Tickets transferred via official platforms (Ticketmaster, AXS, etc.). Proof of scan on request.</p>
-      </div>
-    </div>
-  </section>
+  <!-- ======= Featured Events ======= -->
+  <section id="events" class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Events</h2>
 
-  <section class="strip" id="request">
-    <div class="container wrap">
-      <div class="box">
-        <h2>Popular right now</h2>
-        <ul>
-          <li>Premier League openers</li>
-          <li>Oasis — Manchester</li>
-          <li>UFC Abu Dhabi</li>
-          <li>F1 Abu Dhabi GP</li>
-        </ul>
-        <p class="muted">Looking for something else? Use the request form.</p>
-      </div>
-      <div class="box">
-        <h2>Request by Instagram DM</h2>
-        <p>Message <strong>@ialbseats</strong> with event, date, qty, and budget. We’ll reply with options and an ETA.</p>
-        <a class="btn" href="#contact">Prefer email? Scroll down →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="container" id="contact">
-    <div class="card">
-      <h2>Contact</h2>
-      <p class="muted">Business hours: 10:00–22:00 (WET/WEST). Urgent events get priority.</p>
-      <form id="contact-form">
-        <div style="display:grid; gap:12px; grid-template-columns:1fr 1fr">
-          <div>
-            <label for="name">Name</label>
-            <input id="name" name="name" placeholder="Your name" required>
+      <div class="grid events-grid" id="eventsGrid">
+        <!-- Tour / League Cards — name + starting price only -->
+        <article class="card event" data-title="Bad Bunny — Europe Tour">
+          <div class="badge">🔥 High demand</div>
+          <h3>Bad Bunny — Europe Tour</h3>
+          <p class="price">From <strong>€180</strong></p>
+          <div class="card-actions">
+            <a class="btn btn-outline small" href="#contact" data-prefill="Bad Bunny — Europe Tour">Request This Ticket</a>
           </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        </article>
+
+        <article class="card event" data-title="Oasis — UK Tour">
+          <div class="badge">🔥 High demand</div>
+          <h3>Oasis — UK Tour</h3>
+          <p class="price">From <strong>€150</strong></p>
+          <div class="card-actions">
+            <a class="btn btn-outline small" href="#contact" data-prefill="Oasis — UK Tour">Request This Ticket</a>
           </div>
+        </article>
+
+        <article class="card event" data-title="Coldplay — UK Tour">
+          <div class="badge">🔥 High demand</div>
+          <h3>Coldplay — UK Tour</h3>
+          <p class="price">From <strong>€120</strong></p>
+          <div class="card-actions">
+            <a class="btn btn-outline small" href="#contact" data-prefill="Coldplay — UK Tour">Request This Ticket</a>
+          </div>
+        </article>
+
+        <article class="card event" data-title="Bundesliga Fixtures">
+          <div class="badge">🔥 High demand</div>
+          <h3>Bundesliga Fixtures</h3>
+          <p class="price">From <strong>€40</strong></p>
+          <div class="card-actions">
+            <a class="btn btn-outline small" href="#contact" data-prefill="Bundesliga Fixtures">Request This Ticket</a>
+          </div>
+        </article>
+
+        <article class="card event" data-title="Premier League Fixtures">
+          <div class="badge">🔥 High demand</div>
+          <h3>Premier League Fixtures</h3>
+          <p class="price">From <strong>€45</strong></p>
+          <div class="card-actions">
+            <a class="btn btn-outline small" href="#contact" data-prefill="Premier League Fixtures">Request This Ticket</a>
+          </div>
+        </article>
+
+        <article class="card event" data-title="La Liga Fixtures">
+          <div class="badge">🔥 High demand</div>
+          <h3>La Liga Fixtures</h3>
+          <p class="price">From <strong>€35</strong></p>
+          <div class="card-actions">
+            <a class="btn btn-outline small" href="#contact" data-prefill="La Liga Fixtures">Request This Ticket</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= How It Works ======= -->
+  <section id="how" class="section soft">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <div class="grid three">
+        <div class="step">
+          <span class="step-num">1</span>
+          <h3>Request tickets</h3>
+          <p>Tell us what event you need tickets for and your preferences.</p>
         </div>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Event, date, qty, budget, must‑haves…" required></textarea>
-        <button class="btn primary" type="submit">Send</button>
+        <div class="step">
+          <span class="step-num">2</span>
+          <h3>Get a quote</h3>
+          <p>We’ll find the best available options and send you a quote.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <h3>Confirm &amp; receive</h3>
+          <p>Secure payment and instant delivery to your phone or email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Why Choose Us ======= -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Choose Us</h2>
+      <div class="grid three">
+        <div class="why">
+          <div class="why-ico">🎯</div>
+          <h3>Sold-Out Access</h3>
+          <p>We find tickets when venues say “sold out”.</p>
+        </div>
+        <div class="why">
+          <div class="why-ico">⚡</div>
+          <h3>Fast Turnaround</h3>
+          <p>Quick quotes and rapid ticket delivery.</p>
+        </div>
+        <div class="why">
+          <div class="why-ico">💎</div>
+          <h3>Transparent Pricing</h3>
+          <p>No hidden fees or surprise charges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Pricing ======= -->
+  <section id="pricing" class="section soft">
+    <div class="container">
+      <h2 class="section-title">Pricing &amp; Fees</h2>
+      <p class="lead">
+        As secondary-market specialists, our ticket prices reflect current market demand and availability.
+        Prices start from the amounts shown and may vary based on seating location, demand, and timing.
+      </p>
+      <p class="guarantee">We offer full refunds if your event is canceled and not rescheduled. Your purchase is protected with our guarantee.</p>
+    </div>
+  </section>
+
+  <!-- ======= FAQ ======= -->
+  <section id="faq" class="section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+
+      <details class="faq">
+        <summary>How do you deliver tickets?</summary>
+        <div class="faq-body">Most tickets are delivered via secure mobile transfer or e-tickets. Instructions are provided with your order.</div>
+      </details>
+
+      <details class="faq">
+        <summary>Are mobile tickets accepted everywhere?</summary>
+        <div class="faq-body">Yes. Most venues support mobile tickets. We’ll review delivery options before you confirm.</div>
+      </details>
+
+      <details class="faq">
+        <summary>Is payment safe and secure?</summary>
+        <div class="faq-body">Yes. We use trusted payment providers and never store full card details.</div>
+      </details>
+
+      <details class="faq">
+        <summary>What if my event is canceled?</summary>
+        <div class="faq-body">If your event is canceled and not rescheduled, you’ll receive a full refund.</div>
+      </details>
+
+      <details class="faq">
+        <summary>How quickly can you find last-minute tickets?</summary>
+        <div class="faq-body">Often the same day. Tell us your timing and we’ll prioritize accordingly.</div>
+      </details>
+
+      <details class="faq">
+        <summary>Do you handle group orders?</summary>
+        <div class="faq-body">Yes, we can source adjacent or nearby seats for groups. Add this in your request.</div>
+      </details>
+
+      <details class="faq">
+        <summary>Do you serve international buyers?</summary>
+        <div class="faq-body">Absolutely — we regularly assist international clients and provide clear delivery instructions.</div>
+      </details>
+
+      <details class="faq">
+        <summary>How do quotes work?</summary>
+        <div class="faq-body">Tell us event, city/date, and quantity. We’ll send options with pricing and delivery details. You confirm before paying.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ======= Contact / Lead Form ======= -->
+  <section id="contact" class="section soft">
+    <div class="container">
+      <h2 class="section-title">Get Tickets / Request a Quote</h2>
+
+      <form class="lead-form"
+            name="request"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="request" />
+        <p class="hidden">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <div class="form-grid">
+          <label>
+            Name *
+            <input required type="text" name="name" autocomplete="name" />
+          </label>
+
+          <label>
+            Email *
+            <input required type="email" name="email" autocomplete="email" />
+          </label>
+
+          <label>
+            Phone/WhatsApp *
+            <input required type="tel" name="phone" placeholder="+1 555-555-5555" />
+          </label>
+
+          <label>
+            Event/Artist *
+            <input required type="text" name="event" id="eventField" />
+          </label>
+
+          <label>
+            Date/City/Venue *
+            <input required type="text" name="details" placeholder="e.g., Oct 2025 — London — Wembley" />
+          </label>
+
+          <label>
+            Quantity *
+            <select required name="quantity">
+              <option value="" disabled selected>Select quantity</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option>
+            </select>
+          </label>
+
+          <label>
+            Budget (optional)
+            <input type="text" name="budget" placeholder="e.g., €200 per ticket" />
+          </label>
+
+          <label class="span-2">
+            Additional Notes
+            <textarea name="notes" rows="4" placeholder="Seating preference, timeframe, special requests…"></textarea>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Send Request</button>
+          <a class="btn btn-outline" href="https://wa.me/1234567890" target="_blank" rel="noopener">WhatsApp Chat</a>
+        </div>
+
+        <p class="form-note">By submitting, you agree that prices may be above face value (secondary market).</p>
       </form>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
-        <div>© <span id="year"></span> ialbseats. All rights reserved.</div>
-        <div>
-          <a href="#" class="btn" style="margin-right:8px">Terms</a>
-          <a href="#" class="btn">Privacy</a>
-        </div>
+  <!-- ======= Footer ======= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>ialbseats</strong><br>
+        <a href="mailto:info@ialbseats.com">info@ialbseats.com</a>
+      </div>
+      <nav class="footer-nav">
+        <a href="#top">Home</a>
+        <a href="#how">How It Works</a>
+        <a href="#events">Events</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="legal">
+        <small>© <span id="year"></span> ialbseats</small>
+        <small class="muted block">ialbseats is an independent ticket reseller and is not affiliated with artists, teams, venues, or promoters.</small>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Copyright year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Quick Request → open mailto with prefilled body
-    document.getElementById('quick-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      const event = encodeURIComponent(this.event.value.trim());
-      const qty = encodeURIComponent(this.qty.value.trim());
-      const notes = encodeURIComponent(this.notes.value.trim());
-      const subject = encodeURIComponent('Ticket Request: ' + (this.event.value || ''));
-      const body = encodeURIComponent(`Event: ${this.event.value}\nQty & Budget: ${this.qty.value}\nNotes: ${this.notes.value}\n— Sent from ialbseats website`);
-      // TODO: replace with your email
-      window.location.href = `mailto:business@ialbseats.com?subject=${subject}&body=${body}`;
-    });
-
-    // Contact form → also mailto (can be swapped for a backend later)
-    document.getElementById('contact-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      const name = encodeURIComponent(this.name.value.trim());
-      const email = encodeURIComponent(this.email.value.trim());
-      const message = encodeURIComponent(this.message.value.trim());
-      const subject = encodeURIComponent('Contact — ialbseats (' + (this.name.value || '') + ')');
-      const body = encodeURIComponent(`Name: ${this.name.value}\nEmail: ${this.email.value}\nMessage: ${this.message.value}\n— Sent from ialbseats website`);
-      window.location.href = `mailto:business@ialbseats.com?subject=${subject}&body=${body}`;
-    });
-  </script>
-</body>
-</html>
+  <!-- Sticky WhatsApp Bubble -->
+  <a class="wa-bubble" href="https://wa.me/1234567890" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" width="22" height="22" a
