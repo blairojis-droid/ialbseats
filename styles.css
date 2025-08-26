@@ -73,6 +73,8 @@ body{
 }
 .hero-sub{margin:0 0 20px 0; color:#c8d1ff}
 .hero-ctas{display:flex; gap:12px; justify-content:center; margin:8px 0 18px}
+
+/* Buttons */
 .btn{
   display:inline-flex; align-items:center; justify-content:center;
   border-radius:12px; padding:12px 16px; font-weight:700; text-decoration:none; cursor:pointer;
@@ -81,15 +83,14 @@ body{
 .btn.small{padding:8px 12px; font-size:14px}
 .btn-primary{background:var(--accent); color:#07233a}
 .btn-primary:hover{filter:brightness(1.05)}
-.btn-outline{background:transparent;color:#fff;border-color:#2c4073}
-.btn-outline:hover{background:#1a255c}
 
-.search-wrap{display:flex; justify-content:center}
-.search-wrap input{
-  width:min(680px, 92%); height:46px; border-radius:12px; border:1px solid #3a4b8a;
-  background:rgba(255,255,255,.12); color:#fff; padding:0 14px; outline:0
+/* Outline buttons should ALWAYS show text on white backgrounds */
+.btn-outline{
+  background:#fff;
+  color:var(--navy);
+  border-color:#2c4073;
 }
-.search-wrap input::placeholder{color:#c0c7ff}
+.btn-outline:hover{background:#eef2ff}
 
 /* Trustbar */
 .trustbar{background:#fff}
@@ -116,8 +117,7 @@ body{
 
 .card{
   position:relative; background:var(--card); border:1px solid #eef0f6; border-radius:16px;
-  padding:18px; /* normal padding; badge will flow inline */
-  box-shadow:0 6px 24px rgba(10,18,63,.05)
+  padding:18px; box-shadow:0 6px 24px rgba(10,18,63,.05)
 }
 .card h3{margin:6px 0 6px; font-size:20px; color:var(--navy)}
 
@@ -133,16 +133,6 @@ body{
 .price{margin:8px 0 10px; color:#0f5132}
 .muted{color:var(--muted); margin:0}
 .card-actions{display:flex; gap:8px; margin-top:8px}
-
-/* Fix for request button visibility inside cards */
-.card .btn-outline{
-  color:var(--navy);
-  border-color:#2c4073;
-  background:#fff;
-}
-.card .btn-outline:hover{
-  background:#eef2ff;
-}
 
 /* Steps & Why */
 .step, .why{
@@ -170,6 +160,9 @@ body{
 }
 .form-grid .span-2{grid-column:1/-1}
 label{display:flex; flex-direction:column; gap:6px; font-weight:700; color:var(--navy)}
+label.consent{flex-direction:row; align-items:flex-start; gap:10px; font-weight:700}
+label.consent input{width:18px; height:18px; margin-top:4px; accent-color:var(--accent)}
+label.consent a{color:var(--navy); text-decoration:underline}
 input, select, textarea{
   border:1px solid #d8def0; border-radius:10px; padding:12px; font:inherit; color:var(--ink); background:#fff
 }
@@ -182,6 +175,26 @@ input:focus, select:focus, textarea:focus{outline:3px solid var(--ring); border-
   .form-grid{grid-template-columns:1fr}
 }
 
+/* Callout: request any event, anywhere */
+.callout{
+  margin-top:28px;
+  background:#fff;
+  border:1px solid #eef0f6;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 6px 24px rgba(10,18,63,.05);
+}
+.callout-title{margin:0 0 4px; color:var(--navy)}
+.callout-text{margin:0 0 10px; color:var(--ink)}
+.callout-row{display:flex; gap:10px; align-items:center}
+.callout-row input{
+  flex:1;
+  border:1px solid #d8def0; border-radius:10px; padding:12px; font:inherit; color:var(--ink); background:#fff
+}
+@media (max-width:680px){
+  .callout-row{flex-direction:column; align-items:stretch}
+}
+
 /* Footer */
 .site-footer{border-top:1px solid #eef0f6; padding:28px 0; background:#fff}
 .footer-inner{display:grid; gap:18px; grid-template-columns:1fr 1fr 1fr; align-items:start}
@@ -189,5 +202,5 @@ input:focus, select:focus, textarea:focus{outline:3px solid var(--ring); border-
 .legal .block{display:block; margin-top:6px}
 @media (max-width:760px){.footer-inner{grid-template-columns:1fr}}
 
-/* WhatsApp bubble – removed (kept for safety) */
+/* Remove old WhatsApp bubble if still present */
 .wa-bubble{display:none}
