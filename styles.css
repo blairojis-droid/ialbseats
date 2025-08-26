@@ -115,17 +115,24 @@ body{
 @media (max-width:900px){.events-grid{grid-template-columns:1fr}}
 
 .card{
-  position:relative; background:var(--card); border:1px solid #eef0f6; border-radius:16px; padding:18px;
+  position:relative; background:var(--card); border:1px solid #eef0f6; border-radius:16px;
+  padding:18px; /* normal padding; badge will flow inline */
   box-shadow:0 6px 24px rgba(10,18,63,.05)
 }
-.card h3{margin:4px 0 6px; font-size:20px; color:var(--navy)}
+.card h3{margin:6px 0 6px; font-size:20px; color:var(--navy)}
+
+/* Badge flows above the title so it never overlaps */
 .badge{
-  position:absolute; top:12px; left:12px; background:#ffeded; color:#d12a2a; font-weight:800;
+  position:static;
+  display:inline-flex; align-items:center; gap:6px;
+  margin-bottom:8px;
+  background:#ffeded; color:#d12a2a; font-weight:800;
   padding:4px 8px; border-radius:999px; font-size:12px
 }
+
 .price{margin:8px 0 10px; color:#0f5132}
 .muted{color:var(--muted); margin:0}
-.card-actions{display:flex; gap:8px}
+.card-actions{display:flex; gap:8px; margin-top:8px}
 
 /* Fix for request button visibility inside cards */
 .card .btn-outline{
@@ -182,7 +189,5 @@ input:focus, select:focus, textarea:focus{outline:3px solid var(--ring); border-
 .legal .block{display:block; margin-top:6px}
 @media (max-width:760px){.footer-inner{grid-template-columns:1fr}}
 
-/* WhatsApp bubble – no longer used */
-.wa-bubble{
-  display:none;
-}
+/* WhatsApp bubble – removed (kept for safety) */
+.wa-bubble{display:none}
