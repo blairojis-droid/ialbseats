@@ -282,3 +282,40 @@ label.consent a{color:var(--navy); text-decoration:underline}
 
 /* Remove any leftover WhatsApp bubble if present */
 .wa-bubble{display:none}
+
+.step {
+  text-align:center;
+  border:1px solid #eef0f6;
+  border-radius:16px;
+  padding:28px 20px;
+  background:#fff;
+  box-shadow:0 6px 20px rgba(10,18,63,.05);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.step:hover {
+  transform:translateY(-4px);
+  box-shadow:0 10px 28px rgba(10,18,63,.12);
+}
+.step-num {
+  display:inline-grid;
+  place-items:center;
+  width:48px;
+  height:48px;
+  margin-bottom:12px;
+  border-radius:50%;
+  background:#e9f4ff;
+  color:#0673c2;
+  font-weight:800;
+  font-size:18px;
+}
+.step h3 {
+  margin:6px 0;
+  font-size:18px;
+  color:var(--navy);
+}
+.step p {
+  margin:0;
+  color:var(--muted);
+  font-size:15px;
+}
+
