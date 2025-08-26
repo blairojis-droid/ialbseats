@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 
-  <!-- FAQ Schema for rich results -->
+  <!-- FAQ Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -83,7 +83,7 @@
     </div>
   </header>
 
-  <!-- ======= Hero ======= -->
+  <!-- ======= Hero (with compact, boxed trust bar) ======= -->
   <section class="hero">
     <div class="container hero-inner">
       <h1>Find Last-Minute &amp; Sold-Out Tickets</h1>
@@ -96,38 +96,38 @@
       </div>
     </div>
 
-   <div class="trustbar">
-  <div class="container trustbar-inner">
-    <div class="trust-item">
-      <div class="trust-icon">✔</div>
-      <span>Verified providers</span>
+    <!-- Trust row with small square boxes -->
+    <div class="trustbar">
+      <div class="container trustbar-inner">
+        <div class="trust-item">
+          <span class="check" aria-hidden="true">✓</span>
+          Verified providers
+        </div>
+        <div class="trust-item">
+          <span class="lock" aria-hidden="true">🔒</span>
+          Secure checkout
+        </div>
+        <div class="trust-item">
+          <span class="phone" aria-hidden="true">📞</span>
+          24/7 support
+        </div>
+        <div class="trust-item">
+          <span class="zap" aria-hidden="true">⚡</span>
+          Instant delivery
+        </div>
+      </div>
     </div>
-    <div class="trust-item">
-      <div class="trust-icon">🔒</div>
-      <span>Secure checkout</span>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">📞</div>
-      <span>24/7 support</span>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">⚡</div>
-      <span>Instant delivery</span>
-    </div>
-  </div>
-</div>
-
+  </section>
 
   <!-- ======= Featured Events ======= -->
   <section id="events" class="section">
     <div class="container">
       <h2 class="section-title">Featured Events</h2>
 
-      <!-- Sports Row -->
-      <h3 class="sub-title">⚽ Sports</h3>
-      <div class="grid events-grid">
-        <!-- Highlighted NFL -->
-        <article class="card event highlight" data-title="NFL International Games">
+      <!-- Sports row (with images) -->
+      <h3 class="muted" style="margin:0 0 10px">🏟️ Sports</h3>
+      <div class="grid events-grid sports" id="sportsGrid">
+        <article class="card event" data-title="NFL International Games">
           <img src="images/nfl.jpg" alt="NFL International Games" class="event-img">
           <div class="badge">🔥 High demand</div>
           <h3>NFL International Games</h3>
@@ -178,9 +178,9 @@
         </article>
       </div>
 
-      <!-- Concerts Row -->
-      <h3 class="sub-title">🎵 Concerts</h3>
-      <div class="grid events-grid">
+      <!-- Concerts row (text-only cards) -->
+      <h3 class="muted" style="margin:28px 0 10px">🎵 Concerts</h3>
+      <div class="grid events-grid concerts" id="concertsGrid">
         <article class="card event" data-title="Bad Bunny — Europe Tour">
           <div class="badge">🔥 High demand</div>
           <h3>Bad Bunny — Europe Tour</h3>
@@ -210,7 +210,7 @@
 
         <article class="card event" data-title="Lady Gaga — Europe & United Kingdom Tour">
           <div class="badge">🔥 High demand</div>
-          <h3>Lady Gaga — Europe & United Kingdom Tour</h3>
+          <h3>Lady Gaga — Europe &amp; United Kingdom Tour</h3>
           <p class="price">From <strong>€160</strong></p>
           <div class="card-actions">
             <a class="btn btn-outline small" href="#contact" data-prefill="Lady Gaga — Europe & United Kingdom Tour">Request This Ticket</a>
@@ -218,10 +218,9 @@
         </article>
       </div>
 
-      <!-- Callout -->
-      <h3 class="sub-title">🌍 Can’t Find Your Event?</h3>
+      <!-- ======= Request Anything, Anywhere ======= -->
       <div class="callout">
-        <h3 class="callout-title">Request Anything, Anywhere</h3>
+        <h3 class="callout-title">Can’t find your event?</h3>
         <p class="callout-text">Tell us what you need — concerts, sports, theatre, festivals — <strong>we work worldwide</strong>.</p>
         <div class="callout-row">
           <label class="sr-only" for="quickEvent">Event or team</label>
@@ -230,32 +229,33 @@
         </div>
         <small class="muted">We’ll pre-fill the form below so you can add date/city and any notes.</small>
       </div>
+      <!-- /Request Anything -->
     </div>
   </section>
 
-<!-- ======= How It Works ======= -->
-<section id="how" class="section soft">
-  <div class="container">
-    <h2 class="section-title">How It Works</h2>
-    <div class="grid three">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Request tickets</h3>
-        <p>Tell us what event you need tickets for and your preferences.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Get a quote</h3>
-        <p>We’ll find the best available options and send you a quote.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Confirm &amp; receive</h3>
-        <p>Secure payment and instant delivery to your phone or email.</p>
+  <!-- ======= How It Works ======= -->
+  <section id="how" class="section soft">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <div class="grid three">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Request tickets</h3>
+          <p>Tell us what event you need tickets for and your preferences.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Get a quote</h3>
+          <p>We’ll find the best available options and send you a quote.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Confirm &amp; receive</h3>
+          <p>Secure payment and instant delivery to your phone or email.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- ======= Pricing ======= -->
   <section id="pricing" class="section soft">
@@ -359,7 +359,7 @@
             <textarea name="notes" rows="4" placeholder="Seating preference, timeframe, special requests…"></textarea>
           </label>
 
-          <!-- Legal consent (required) -->
+          <!-- Legal consent -->
           <label class="span-2 consent">
             <input required type="checkbox" name="consent" value="yes" />
             <span>I agree to the <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Service</a>, and consent to be contacted regarding my request.</span>
@@ -390,6 +390,7 @@
         <div class="footer-logo">ialbseats</div>
         <a class="footer-mail" href="mailto:info@ialbseats.com">info@ialbseats.com</a>
         <p class="footer-note">Global ticket service provider — we work worldwide.</p>
+
         <div class="footer-social">
           <a href="https://instagram.com/ialbseats" target="_blank" rel="noopener">@ialbseats</a>
         </div>
