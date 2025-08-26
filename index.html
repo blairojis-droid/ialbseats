@@ -279,6 +279,7 @@
       <form class="lead-form"
             name="request"
             method="POST"
+            action="/success.html"
             data-netlify="true"
             netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="request" />
@@ -366,5 +367,17 @@
       </div>
     </div>
   </footer>
+
+  <!-- Hidden build-time form so Netlify always detects this form -->
+  <form name="request" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="event" />
+    <input type="text" name="details" />
+    <select name="quantity"><option>1</option></select>
+    <input type="text" name="budget" />
+    <textarea name="notes"></textarea>
+  </form>
 </body>
 </html>
