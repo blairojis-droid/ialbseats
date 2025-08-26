@@ -84,14 +84,6 @@ body{
 .btn-primary{background:var(--accent); color:#07233a}
 .btn-primary:hover{filter:brightness(1.05)}
 
-/* Outline buttons should ALWAYS show text on white backgrounds */
-.btn-outline{
-  background:#fff;
-  color:var(--navy);
-  border-color:#2c4073;
-}
-.btn-outline:hover{background:#eef2ff}
-
 /* Trustbar */
 .trustbar{background:#fff}
 .trustbar-inner{
@@ -160,9 +152,22 @@ body{
 }
 .form-grid .span-2{grid-column:1/-1}
 label{display:flex; flex-direction:column; gap:6px; font-weight:700; color:var(--navy)}
-label.consent{flex-direction:row; align-items:flex-start; gap:10px; font-weight:700}
-label.consent input{width:18px; height:18px; margin-top:4px; accent-color:var(--accent)}
+
+/* Consent row stays together */
+label.consent{
+  flex-direction:row;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  cursor:pointer;
+}
+label.consent input{
+  width:18px; height:18px; margin:0;
+  accent-color:var(--accent);
+}
+label.consent span{flex:1}
 label.consent a{color:var(--navy); text-decoration:underline}
+
 input, select, textarea{
   border:1px solid #d8def0; border-radius:10px; padding:12px; font:inherit; color:var(--ink); background:#fff
 }
@@ -201,6 +206,21 @@ input:focus, select:focus, textarea:focus{outline:3px solid var(--ring); border-
 .footer-nav{display:grid; gap:8px}
 .legal .block{display:block; margin-top:6px}
 @media (max-width:760px){.footer-inner{grid-template-columns:1fr}}
+
+/* --- FINAL OVERRIDES (keep at the very end) --- */
+/* Outline buttons must always show text on light backgrounds */
+.btn-outline,
+.card .btn-outline,
+.lead-form .btn-outline{
+  background:#fff !important;
+  color:var(--navy) !important;
+  border:2px solid #2c4073 !important;
+}
+.btn-outline:hover,
+.card .btn-outline:hover,
+.lead-form .btn-outline:hover{
+  background:#eef2ff !important;
+}
 
 /* Remove old WhatsApp bubble if still present */
 .wa-bubble{display:none}
