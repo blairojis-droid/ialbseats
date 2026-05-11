@@ -5,368 +5,1434 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ialbseats — Sold-Out Tickets, Secured Fast</title>
   <meta name="description" content="Find last-minute & sold-out tickets worldwide. Verified providers, secure delivery, fast support. We source tickets across the United Kingdom, Spain, Germany, US tours and global sports leagues." />
-  <link rel="canonical" href="https://ialbseats.com/">
-
-  <!-- Open Graph -->
+  <link rel="canonical" href="https://ialbseats.com/" />
   <meta property="og:title" content="ialbseats — Sold-Out Tickets, Secured Fast" />
-  <meta property="og:description" content="Find last-minute & sold-out tickets worldwide. Verified providers, secure delivery, fast support. We source tickets across the United Kingdom, Spain, Germany, US tours and global sports leagues." />
+  <meta property="og:description" content="Find last-minute & sold-out tickets worldwide. Verified providers, secure delivery, fast support." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ialbseats.com/" />
-  <meta property="og:image" content="https://ialbseats.com/og-image.png" />
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ialbseats — Sold-Out Tickets, Secured Fast" />
-  <meta name="twitter:description" content="Find last-minute & sold-out tickets worldwide. Verified providers, secure delivery, fast support." />
-  <meta name="twitter:image" content="https://ialbseats.com/og-image.png" />
-
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b1340'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-size='36' font-family='system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial' fill='%23fff'%3Ei%3C/text%3E%3C/svg%3E">
-
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
-
-  <!-- FAQ Schema for SEO -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23e8ff47'/%3E%3Ctext x='50%25' y='62%25' text-anchor='middle' font-size='40' font-family='Georgia,serif' fill='%23000'%3Ei%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How do you deliver tickets?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most tickets are delivered via secure mobile transfer or e-tickets."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you serve international buyers?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes — we work with clients worldwide, including the United Kingdom, Spain, Germany, US tours and global sports leagues."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How quickly can you find tickets?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Often the same day. Average response time is under 1 hour."
-        }
-      }
-    ]
-  }
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How do you deliver tickets?","acceptedAnswer":{"@type":"Answer","text":"Most tickets are delivered via secure mobile transfer or e-tickets."}},
+    {"@type":"Question","name":"Do you serve international buyers?","acceptedAnswer":{"@type":"Answer","text":"Yes — we work with clients worldwide."}},
+    {"@type":"Question","name":"How quickly can you find tickets?","acceptedAnswer":{"@type":"Answer","text":"Often the same day. Average response time is under 1 hour."}}
+  ]}
   </script>
+  <style>
+/* ============================================================
+   ialbseats — Global Stylesheet
+   ============================================================ */
+
+
+:root {
+  --ink: #0a0a0a;
+  --paper: #f5f2eb;
+  --accent: #e8ff47;
+  --accent2: #ff4b3e;
+  --mid: #2a2a2a;
+  --muted: #666;
+  --border: rgba(0,0,0,0.12);
+  --card-bg: #fff;
+  --soft-bg: #f0ede4;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --max: 1180px;
+  --r: 6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font-family: var(--font-body); }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+.hidden { display: none; }
+
+/* ── HEADER ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  color: #fff;
+  border-bottom: 2px solid var(--accent);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 62px;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.brand__logo {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  color: var(--ink);
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.nav { display: flex; align-items: center; gap: 6px; }
+
+.nav a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+.nav a.cta {
+  background: var(--accent);
+  color: var(--ink);
+  font-weight: 600;
+  padding: 8px 18px;
+}
+
+.nav a.cta:hover { background: #d4eb00; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  color: #fff;
+  padding: 90px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: 'TICKETS';
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  font-family: var(--font-display);
+  font-size: clamp(80px, 18vw, 220px);
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-inner { position: relative; z-index: 1; max-width: 780px; }
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.hero-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  margin-bottom: 28px;
+}
+
+.hero h1 em { font-style: normal; color: var(--accent); }
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.65);
+  max-width: 540px;
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+
+.hero-sub strong { color: rgba(255,255,255,0.9); }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 60px; }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: var(--r);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.btn-primary { background: var(--accent); color: var(--ink); border-color: var(--accent); }
+.btn-primary:hover { background: #d4eb00; border-color: #d4eb00; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,255,71,0.3); }
+
+.btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: #fff; }
+
+.btn-outline-light { background: transparent; color: #fff; border-color: rgba(255,255,255,0.4); }
+.btn-outline-light:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+.btn.small { padding: 9px 18px; font-size: 0.78rem; }
+
+/* ── TRUSTBAR ── */
+.trustbar { background: rgba(255,255,255,0.04); border-top: 1px solid rgba(255,255,255,0.08); }
+.trustbar-inner { display: flex; overflow-x: auto; scrollbar-width: none; }
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 28px;
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  white-space: nowrap;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+}
+
+.trust-item:last-child { border-right: none; }
+
+.trust-icon {
+  width: 28px;
+  height: 28px;
+  background: rgba(232,255,71,0.12);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* ── SECTIONS ── */
+.section { padding: 90px 0; }
+.section.soft { background: var(--soft-bg); }
+
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--accent2);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin-bottom: 48px;
+}
+
+/* ── HOW IT WORKS ── */
+.steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+
+.step {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 36px 28px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.step::before {
+  content: attr(data-num);
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  font-family: var(--font-display);
+  font-size: 6rem;
+  color: var(--accent);
+  opacity: 0.18;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.step-num {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: var(--ink);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.step h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+.step p { color: var(--muted); font-size: 0.92rem; }
+
+/* ── EVENTS GRID ── */
+.events-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-bottom: 20px; }
+
+.card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.22s, box-shadow 0.22s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+
+/* SVG illustration container */
+.event-art { width: 100%; height: 180px; display: block; }
+
+.card-body { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin-bottom: 8px;
+}
+
+.card-body h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; line-height: 1.3; }
+
+.price { font-size: 0.9rem; color: var(--muted); margin-bottom: 16px; }
+.price strong { color: var(--ink); font-size: 1.05rem; }
+
+.card-actions { margin-top: auto; }
+
+.cat-pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--soft-bg);
+  color: var(--muted);
+  padding: 3px 8px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+
+/* ── CALLOUT ── */
+.callout {
+  margin-top: 56px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 12px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.callout-title { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,2.8rem); letter-spacing: 0.02em; }
+.callout-text { color: rgba(255,255,255,0.65); max-width: 420px; }
+
+.callout-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 540px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.callout-row input {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 16px;
+  border-radius: var(--r);
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.callout-row input::placeholder { color: rgba(255,255,255,0.35); }
+.callout-row input:focus { border-color: var(--accent); }
+.muted-small { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: -4px; }
+
+/* ── PRICING ── */
+.pricing-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 48px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.pricing-card p { color: var(--muted); margin-bottom: 20px; line-height: 1.8; }
+
+.guarantee-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #efffee;
+  border: 1px solid #b5e8b5;
+  color: #1a7a1a;
+  padding: 12px 18px;
+  border-radius: var(--r);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* ── FAQ ── */
+.faq-list { max-width: 700px; }
+
+details.faq { border-bottom: 1px solid var(--border); }
+
+details.faq summary {
+  padding: 20px 0;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+details.faq summary::-webkit-details-marker { display: none; }
+
+details.faq summary::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+details.faq[open] summary::after { transform: rotate(45deg); color: var(--ink); }
+
+.faq-body { padding: 0 0 20px; color: var(--muted); font-size: 0.94rem; line-height: 1.8; }
+
+/* ── CONTACT FORM ── */
+.form-wrapper {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 48px;
+  max-width: 760px;
+  margin: 0 auto;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.05);
+}
+
+.form-note-top { text-align: center; font-size: 0.85rem; color: var(--muted); margin-bottom: 32px; }
+.form-note-top strong { color: var(--ink); }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.83rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.form-grid input:focus,
+.form-grid select:focus,
+.form-grid textarea:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(10,10,10,0.06);
+}
+
+.form-grid textarea { resize: vertical; }
+.span-2 { grid-column: span 2; }
+
+.consent-label {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.83rem !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  color: var(--muted) !important;
+  font-weight: 400 !important;
+}
+
+.consent-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  accent-color: var(--ink);
+  cursor: pointer;
+}
+
+.consent-label a { text-decoration: underline; }
+
+.form-actions { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+
+.form-legal { margin-top: 18px; font-size: 0.76rem; color: rgba(0,0,0,0.35); line-height: 1.6; }
+
+/* ── LEGAL PAGES ── */
+.legal-content { max-width: 760px; }
+
+.legal-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 28px 32px;
+  margin-bottom: 16px;
+}
+
+.legal-card h2,
+.legal-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.legal-card p,
+.legal-card li { color: var(--muted); line-height: 1.8; font-size: 0.95rem; }
+
+.legal-card ul { padding-left: 18px; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+
+.legal-card a { text-decoration: underline; }
+.legal-card a:hover { color: var(--ink); }
+
+.legal-date { font-size: 0.82rem; color: var(--muted); margin-bottom: 32px; }
+
+/* ── SUCCESS PAGE ── */
+.success-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.success-icon {
+  width: 72px;
+  height: 72px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  margin: 0 auto 28px;
+}
+
+.success-wrap h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.success-wrap p { color: var(--muted); margin-bottom: 28px; line-height: 1.8; }
+
+.success-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ── FOOTER ── */
+.site-footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.45);
+  padding: 56px 0 32px;
+  font-size: 0.84rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+
+.footer-tagline { color: rgba(255,255,255,0.4); font-size: 0.85rem; margin-bottom: 14px; }
+
+.footer-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.footer-email:hover { color: #fff; }
+
+.footer-social { margin-top: 14px; }
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.82rem;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.footer-social a:hover { color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.06); }
+
+.footer-nav h4 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 14px;
+}
+
+.footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+.footer-nav a { color: rgba(255,255,255,0.5); transition: color 0.2s; font-size: 0.85rem; }
+.footer-nav a:hover { color: #fff; }
+
+.footer-bottom {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-label { animation: fadeUp 0.5s ease both; }
+.hero h1 { animation: fadeUp 0.6s 0.1s ease both; }
+.hero-sub { animation: fadeUp 0.6s 0.2s ease both; }
+.hero-ctas { animation: fadeUp 0.6s 0.3s ease both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) { .events-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 700px) { .steps-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } .span-2 { grid-column: span 1; } }
+@media (max-width: 560px) { .events-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 720px) {
+  .nav-toggle { display: flex; }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    right: 0;
+    background: var(--ink);
+    flex-direction: column;
+    padding: 16px 24px 24px;
+    border-bottom: 2px solid var(--accent);
+    gap: 4px;
+  }
+
+  .nav.open { display: flex; }
+  .nav a { padding: 12px 16px; font-size: 0.95rem; }
+  .nav a.cta { text-align: center; }
+
+  .hero { padding: 60px 0 0; }
+  .hero h1 { font-size: clamp(2.4rem, 10vw, 4rem); }
+  .section { padding: 60px 0; }
+  .form-wrapper, .pricing-card, .callout { padding: 28px 20px; }
+  .legal-card { padding: 22px 18px; }
+  .callout { padding: 32px 20px; }
+  .footer-inner { flex-direction: column; gap: 32px; }
+}
+
+  </style>
 </head>
 <body>
-  <!-- ======= Header ======= -->
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="ialbseats home">
-        <span class="brand__logo" aria-hidden="true">i</span>
-        <span class="brand__text">ialbseats</span>
-      </a>
+<!-- HEADER -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="ialbseats home">
+      <span class="brand__logo" aria-hidden="true">i</span>
+      <span class="brand__text">ialbseats</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="primary-nav" class="nav">
+      <a href="#how">How It Works</a>
+      <a href="#events">Events</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="cta" href="#contact">Get Tickets</a>
+    </nav>
+  </div>
+</header>
 
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
-        <span class="sr-only">Toggle navigation</span>
-        <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </button>
-
-      <nav id="primary-nav" class="nav">
-        <a href="#how">How It Works</a>
-        <a href="#events">Events</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
-        <a class="cta" href="#contact">Contact</a>
-      </nav>
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-label">Secondary ticket marketplace</div>
+    <h1>Find <em>Last-Minute</em><br>&amp; Sold-Out<br>Tickets</h1>
+    <p class="hero-sub">
+      Verified providers. Secure delivery. Fast support.<br>
+      We source tickets worldwide — <strong>United Kingdom, Spain, Germany, US tours and global sports leagues.</strong>
+    </p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#contact">Request Tickets</a>
+      <a class="btn btn-outline-light" href="#events">Browse Events</a>
     </div>
-  </header>
+  </div>
+  <div class="trustbar">
+    <div class="container trustbar-inner">
+      <div class="trust-item"><span class="trust-icon">✓</span> Verified providers</div>
+      <div class="trust-item"><span class="trust-icon">🔒</span> Secure checkout</div>
+      <div class="trust-item"><span class="trust-icon">📞</span> 24/7 support</div>
+      <div class="trust-item"><span class="trust-icon">⚡</span> Instant delivery</div>
+      <div class="trust-item"><span class="trust-icon">⏱</span> Response &lt; 1 hour</div>
+    </div>
+  </div>
+</section>
 
-  <!-- ======= Hero ======= -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <h1>Find Last-Minute &amp; Sold-Out Tickets</h1>
-      <p class="hero-sub">
-        Verified providers. Secure delivery. Fast support. <br>
-        We source tickets worldwide — <strong>United Kingdom, Spain, Germany, US tours and global sports leagues.</strong>
-      </p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="#contact">Request Tickets</a>
+<!-- HOW IT WORKS -->
+<section id="how" class="section soft">
+  <div class="container">
+    <div class="section-label">Simple process</div>
+    <h2 class="section-title">How It Works</h2>
+    <div class="steps-grid">
+      <div class="step" data-num="1">
+        <div class="step-num">1</div>
+        <h3>Request tickets</h3>
+        <p>Tell us what event you need tickets for and your preferences. Takes 60 seconds.</p>
+      </div>
+      <div class="step" data-num="2">
+        <div class="step-num">2</div>
+        <h3>Get a quote</h3>
+        <p>We'll find the best available options and send you a confirmed quote within the hour.</p>
+      </div>
+      <div class="step" data-num="3">
+        <div class="step-num">3</div>
+        <h3>Confirm &amp; receive</h3>
+        <p>Secure payment and instant delivery to your phone or email. Ready for the event.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Trustbar -->
-    <div class="trustbar">
-      <div class="container trustbar-inner">
-        <div class="trust-item">
-          <span class="check" aria-hidden="true">✓</span>
-          Verified providers
-        </div>
-        <div class="trust-item">
-          <span class="lock" aria-hidden="true">🔒</span>
-          Secure checkout
-        </div>
-        <div class="trust-item">
-          <span class="phone" aria-hidden="true">📞</span>
-          24/7 support
-        </div>
-        <div class="trust-item">
-          <span class="zap" aria-hidden="true">⚡</span>
-          Instant delivery
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- FEATURED EVENTS -->
+<section id="events" class="section">
+  <div class="container">
+    <div class="section-label">2026 Season</div>
+    <h2 class="section-title">Featured Events</h2>
 
-  <!-- ======= Featured Events ======= -->
-  <section id="events" class="section">
-    <div class="container">
-      <h2 class="section-title">Featured Events</h2>
+    <!-- Concerts -->
+    <div class="events-grid">
 
-      <!-- Sports Row -->
-      <div class="grid events-grid">
-        <article class="card event" data-title="NFL International Games">
-          <img src="images/nfl.jpg" alt="NFL International Games" class="event-img">
+      <article class="card" data-title="Harry Styles — Together, Together Tour">
+        <svg class="event-art" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="hs-bg" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="#1a0533"/><stop offset="100%" stop-color="#0a0118"/></radialGradient>
+            <radialGradient id="hs-sp" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="#c084fc" stop-opacity=".6"/><stop offset="100%" stop-color="#c084fc" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="400" height="180" fill="url(#hs-bg)"/>
+          <ellipse cx="200" cy="72" rx="120" ry="80" fill="url(#hs-sp)"/>
+          <ellipse cx="200" cy="148" rx="180" ry="28" fill="none" stroke="#4a1d7a" stroke-width="1.5" opacity=".6"/>
+          <ellipse cx="200" cy="148" rx="140" ry="20" fill="none" stroke="#6b21a8" stroke-width="1" opacity=".4"/>
+          <rect x="160" y="120" width="80" height="10" rx="2" fill="#7c3aed" opacity=".9"/>
+          <rect x="175" y="108" width="50" height="14" rx="1" fill="#6d28d9" opacity=".7"/>
+          <line x1="200" y1="20" x2="175" y2="118" stroke="#c084fc" stroke-width="1.5" opacity=".3"/>
+          <line x1="200" y1="20" x2="200" y2="108" stroke="#e879f9" stroke-width="2" opacity=".5"/>
+          <line x1="200" y1="20" x2="225" y2="118" stroke="#c084fc" stroke-width="1.5" opacity=".3"/>
+          <circle cx="60" cy="30" r="1.2" fill="#fff" opacity=".7"/><circle cx="340" cy="20" r="1" fill="#fff" opacity=".6"/>
+          <circle cx="90" cy="60" r=".8" fill="#e879f9" opacity=".8"/><circle cx="310" cy="50" r="1" fill="#c084fc" opacity=".7"/>
+          <circle cx="150" cy="15" r=".8" fill="#fff" opacity=".5"/><circle cx="260" cy="25" r="1.2" fill="#fff" opacity=".6"/>
+          <ellipse cx="200" cy="107" rx="5" ry="7" fill="#e879f9" opacity=".9"/>
+          <line x1="200" y1="114" x2="200" y2="126" stroke="#e879f9" stroke-width="2" opacity=".8"/>
+          <line x1="200" y1="118" x2="193" y2="124" stroke="#e879f9" stroke-width="1.5" opacity=".7"/>
+          <line x1="200" y1="118" x2="207" y2="124" stroke="#e879f9" stroke-width="1.5" opacity=".7"/>
+          <text x="200" y="168" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" fill="#c084fc" opacity=".8" letter-spacing="2.5">WEMBLEY STADIUM · JUN–JUL 2026</text>
+        </svg>
+        <div class="card-body">
+          <span class="cat-pill">Concert</span>
+          <div class="badge">🔥 Sold out</div>
+          <h3>Harry Styles — Together, Together Tour</h3>
+          <p class="price">From <strong>€190</strong></p>
+          <div class="card-actions"><a class="btn btn-outline small" href="#contact" data-prefill="Harry Styles — Together, Together Tour">Request This Ticket</a></div>
+        </div>
+      </article>
+
+      <article class="card" data-title="The Weeknd — After Hours Til Dawn Tour">
+        <svg class="event-art" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="wk-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0f0a00"/><stop offset="100%" stop-color="#1a0a00"/></linearGradient>
+            <radialGradient id="wk-gl" cx="50%" cy="35%" r="45%"><stop offset="0%" stop-color="#f97316" stop-opacity=".5"/><stop offset="100%" stop-color="#f97316" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="400" height="180" fill="url(#wk-bg)"/>
+          <ellipse cx="200" cy="63" rx="90" ry="60" fill="url(#wk-gl)"/>
+          <circle cx="200" cy="55" r="38" fill="#1c0a00" stroke="#f97316" stroke-width="1.5" opacity=".8"/>
+          <circle cx="214" cy="48" r="34" fill="#0f0a00"/>
+          <rect x="20" y="130" width="18" height="50" fill="#1a1000"/><rect x="45" y="118" width="14" height="62" fill="#1a1000"/>
+          <rect x="66" y="125" width="20" height="55" fill="#1a1000"/><rect x="93" y="110" width="16" height="70" fill="#1a1000"/>
+          <rect x="116" y="120" width="12" height="60" fill="#1a1000"/><rect x="135" y="105" width="22" height="75" fill="#1a1000"/>
+          <rect x="164" y="115" width="14" height="65" fill="#1a1000"/><rect x="185" y="128" width="30" height="52" fill="#1a1000"/>
+          <rect x="222" y="112" width="16" height="68" fill="#1a1000"/><rect x="245" y="122" width="20" height="58" fill="#1a1000"/>
+          <rect x="272" y="108" width="18" height="72" fill="#1a1000"/><rect x="297" y="118" width="14" height="62" fill="#1a1000"/>
+          <rect x="318" y="125" width="22" height="55" fill="#1a1000"/><rect x="347" y="115" width="16" height="65" fill="#1a1000"/>
+          <rect x="370" y="130" width="18" height="50" fill="#1a1000"/>
+          <rect x="49" y="122" width="3" height="3" fill="#f97316" opacity=".6"/><rect x="98" y="115" width="3" height="3" fill="#fb923c" opacity=".5"/>
+          <rect x="139" y="110" width="3" height="3" fill="#f97316" opacity=".6"/><rect x="227" y="118" width="3" height="3" fill="#fb923c" opacity=".5"/>
+          <rect x="278" y="113" width="3" height="3" fill="#f97316" opacity=".6"/>
+          <text x="200" y="168" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" fill="#f97316" opacity=".8" letter-spacing="2.5">WEMBLEY STADIUM · AUG 2026</text>
+        </svg>
+        <div class="card-body">
+          <span class="cat-pill">Concert</span>
           <div class="badge">🔥 High demand</div>
-          <h3>NFL International Games</h3>
-          <p class="price">From <strong>€70</strong></p>
-          <div class="card-actions">
-            <a class="btn btn-outline small" href="#contact" data-prefill="NFL International Games">Request This Ticket</a>
-          </div>
-        </article>
+          <h3>The Weeknd — After Hours Til Dawn Tour</h3>
+          <p class="price">From <strong>€160</strong></p>
+          <div class="card-actions"><a class="btn btn-outline small" href="#contact" data-prefill="The Weeknd — After Hours Til Dawn Tour">Request This Ticket</a></div>
+        </div>
+      </article>
 
-        <article class="card event" data-title="Premier League Fixtures">
-          <img src="images/premierleague.jpg" alt="Premier League Fixtures" class="event-img">
+      <article class="card" data-title="My Chemical Romance — Long Live The Black Parade Tour">
+        <svg class="event-art" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="mcr-bg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0a0a0a"/><stop offset="100%" stop-color="#1a0000"/></linearGradient>
+          </defs>
+          <rect width="400" height="180" fill="url(#mcr-bg)"/>
+          <line x1="0" y1="90" x2="400" y2="85" stroke="#dc2626" stroke-width=".8" opacity=".3"/>
+          <circle cx="80" cy="95" r="7" fill="#1a1a1a"/><rect x="77" y="102" width="6" height="18" rx="1" fill="#1a1a1a"/>
+          <line x1="77" y1="108" x2="70" y2="116" stroke="#1a1a1a" stroke-width="2"/><line x1="83" y1="108" x2="90" y2="116" stroke="#1a1a1a" stroke-width="2"/>
+          <line x1="80" y1="120" x2="76" y2="132" stroke="#1a1a1a" stroke-width="2"/><line x1="80" y1="120" x2="84" y2="132" stroke="#1a1a1a" stroke-width="2"/>
+          <circle cx="140" cy="93" r="7" fill="#1a1a1a"/><rect x="137" y="100" width="6" height="18" rx="1" fill="#1a1a1a"/>
+          <line x1="137" y1="106" x2="130" y2="114" stroke="#1a1a1a" stroke-width="2"/><line x1="143" y1="106" x2="150" y2="112" stroke="#1a1a1a" stroke-width="2"/>
+          <line x1="140" y1="118" x2="136" y2="130" stroke="#1a1a1a" stroke-width="2"/><line x1="140" y1="118" x2="144" y2="130" stroke="#1a1a1a" stroke-width="2"/>
+          <circle cx="200" cy="88" r="9" fill="#dc2626"/><rect x="196" y="97" width="8" height="22" rx="1" fill="#dc2626"/>
+          <line x1="196" y1="105" x2="186" y2="115" stroke="#dc2626" stroke-width="2.5"/><line x1="204" y1="105" x2="214" y2="115" stroke="#dc2626" stroke-width="2.5"/>
+          <line x1="200" y1="119" x2="195" y2="133" stroke="#dc2626" stroke-width="2.5"/><line x1="200" y1="119" x2="205" y2="133" stroke="#dc2626" stroke-width="2.5"/>
+          <circle cx="260" cy="93" r="7" fill="#1a1a1a"/><rect x="257" y="100" width="6" height="18" rx="1" fill="#1a1a1a"/>
+          <line x1="257" y1="106" x2="250" y2="112" stroke="#1a1a1a" stroke-width="2"/><line x1="263" y1="106" x2="270" y2="114" stroke="#1a1a1a" stroke-width="2"/>
+          <line x1="260" y1="118" x2="256" y2="130" stroke="#1a1a1a" stroke-width="2"/><line x1="260" y1="118" x2="264" y2="130" stroke="#1a1a1a" stroke-width="2"/>
+          <circle cx="320" cy="95" r="7" fill="#1a1a1a"/><rect x="317" y="102" width="6" height="18" rx="1" fill="#1a1a1a"/>
+          <line x1="317" y1="108" x2="310" y2="116" stroke="#1a1a1a" stroke-width="2"/><line x1="323" y1="108" x2="330" y2="116" stroke="#1a1a1a" stroke-width="2"/>
+          <line x1="320" y1="120" x2="316" y2="132" stroke="#1a1a1a" stroke-width="2"/><line x1="320" y1="120" x2="324" y2="132" stroke="#1a1a1a" stroke-width="2"/>
+          <line x1="0" y1="136" x2="400" y2="136" stroke="#dc2626" stroke-width="1.5" opacity=".5"/>
+          <text x="200" y="158" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" fill="#dc2626" opacity=".9" letter-spacing="2.5">WEMBLEY STADIUM · JUL 2026</text>
+        </svg>
+        <div class="card-body">
+          <span class="cat-pill">Concert</span>
+          <div class="badge">🔥 Sold out</div>
+          <h3>My Chemical Romance — Long Live The Black Parade</h3>
+          <p class="price">From <strong>€175</strong></p>
+          <div class="card-actions"><a class="btn btn-outline small" href="#contact" data-prefill="My Chemical Romance — Long Live The Black Parade Tour">Request This Ticket</a></div>
+        </div>
+      </article>
+
+      <article class="card" data-title="Metallica — No Repeat Europe Tour 2026">
+        <svg class="event-art" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="mt-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0a0a0a"/><stop offset="100%" stop-color="#111108"/></linearGradient>
+            <radialGradient id="mt-fr" cx="50%" cy="80%" r="60%"><stop offset="0%" stop-color="#f59e0b" stop-opacity=".45"/><stop offset="60%" stop-color="#dc2626" stop-opacity=".2"/><stop offset="100%" stop-color="#dc2626" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="400" height="180" fill="url(#mt-bg)"/>
+          <ellipse cx="200" cy="155" rx="200" ry="80" fill="url(#mt-fr)"/>
+          <polygon points="185,20 205,75 195,75 215,140 193,80 205,80" fill="#f59e0b" opacity=".9"/>
+          <polygon points="183,22 203,77 193,77 213,142 191,82 203,82" fill="#fbbf24" opacity=".3"/>
+          <path d="M120 170 Q130 140 140 155 Q150 130 160 148 Q170 120 180 145 Q190 115 200 140 Q210 115 220 145 Q230 120 240 148 Q250 130 260 155 Q270 140 280 170Z" fill="#dc2626" opacity=".6"/>
+          <path d="M140 170 Q148 148 155 160 Q163 138 172 155 Q180 130 190 150 Q200 128 210 150 Q218 130 228 155 Q235 138 243 160 Q250 148 260 170Z" fill="#f97316" opacity=".5"/>
+          <path d="M155 170 Q162 155 168 163 Q176 145 184 158 Q192 138 200 153 Q208 138 216 158 Q224 145 232 163 Q238 155 245 170Z" fill="#fbbf24" opacity=".5"/>
+          <circle cx="50" cy="35" r="1" fill="#f59e0b" opacity=".6"/><circle cx="350" cy="28" r="1.2" fill="#f59e0b" opacity=".5"/>
+          <circle cx="310" cy="60" r=".8" fill="#fbbf24" opacity=".7"/><circle cx="80" cy="55" r=".9" fill="#f59e0b" opacity=".6"/>
+          <text x="200" y="172" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" fill="#f59e0b" opacity=".9" letter-spacing="2.5">NO REPEAT WEEKENDS · EUROPE 2026</text>
+        </svg>
+        <div class="card-body">
+          <span class="cat-pill">Concert</span>
+          <div class="badge">🔥 High demand</div>
+          <h3>Metallica — No Repeat Europe Tour</h3>
+          <p class="price">From <strong>€140</strong></p>
+          <div class="card-actions"><a class="btn btn-outline small" href="#contact" data-prefill="Metallica — No Repeat Europe Tour 2026">Request This Ticket</a></div>
+        </div>
+      </article>
+
+      <article class="card" data-title="Foo Fighters — Europe Summer Tour 2026">
+        <svg class="event-art" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ff-bg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#020617"/><stop offset="100%" stop-color="#0c1445"/></linearGradient>
+            <radialGradient id="ff-gl" cx="50%" cy="60%" r="50%"><stop offset="0%" stop-color="#3b82f6" stop-opacity=".35"/><stop offset="100%" stop-color="#1d4ed8" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="400" height="180" fill="url(#ff-bg)"/>
+          <ellipse cx="200" cy="108" rx="160" ry="80" fill="url(#ff-gl)"/>
+          <rect x="60" y="115" width="8" height="20" rx="2" fill="#3b82f6" opacity=".7"/>
+          <rect x="74" y="100" width="8" height="35" rx="2" fill="#60a5fa" opacity=".8"/>
+          <rect x="88" y="90" width="8" height="45" rx="2" fill="#3b82f6" opacity=".9"/>
+          <rect x="102" y="80" width="8" height="55" rx="2" fill="#93c5fd" opacity=".7"/>
+          <rect x="116" y="95" width="8" height="40" rx="2" fill="#3b82f6" opacity=".8"/>
+          <rect x="130" y="78" width="8" height="57" rx="2" fill="#60a5fa" opacity=".9"/>
+          <rect x="144" y="65" width="8" height="70" rx="2" fill="#3b82f6"/>
+          <rect x="158" y="50" width="8" height="85" rx="2" fill="#93c5fd" opacity=".9"/>
+          <rect x="172" y="40" width="8" height="95" rx="2" fill="#3b82f6"/>
+          <rect x="186" y="55" width="8" height="80" rx="2" fill="#60a5fa"/>
+          <rect x="200" y="45" width="8" height="90" rx="2" fill="#3b82f6"/>
+          <rect x="214" y="55" width="8" height="80" rx="2" fill="#60a5fa"/>
+          <rect x="228" y="40" width="8" height="95" rx="2" fill="#3b82f6"/>
+          <rect x="242" y="50" width="8" height="85" rx="2" fill="#93c5fd" opacity=".9"/>
+          <rect x="256" y="65" width="8" height="70" rx="2" fill="#3b82f6"/>
+          <rect x="270" y="78" width="8" height="57" rx="2" fill="#60a5fa" opacity=".9"/>
+          <rect x="284" y="95" width="8" height="40" rx="2" fill="#3b82f6" opacity=".8"/>
+          <rect x="298" y="80" width="8" height="55" rx="2" fill="#93c5fd" opacity=".7"/>
+          <rect x="312" y="90" width="8" height="45" rx="2" fill="#3b82f6" opacity=".9"/>
+          <rect x="326" y="100" width="8" height="35" rx="2" fill="#60a5fa" opacity=".8"/>
+          <rect x="340" y="115" width="8" height="20" rx="2" fill="#3b82f6" opacity=".7"/>
+          <line x1="50" y1="135" x2="350" y2="135" stroke="#1d4ed8" stroke-width="1" opacity=".4"/>
+          <text x="200" y="158" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" fill="#60a5fa" opacity=".8" letter-spacing="2.5">10 EUROPEAN CITIES · SUMMER 2026</text>
+        </svg>
+        <div class="card-body">
+          <span class="cat-pill">Concert</span>
+          <div class="badge">🔥 High demand</div>
+          <h3>Foo Fighters — Europe Summer Tour</h3>
+          <p class="price">From <strong>€120</strong></p>
+          <div class="card-actions"><a class="btn btn-outline small" href="#contact" data-prefill="Foo Fighters — Europe Summer Tour 2026">Request This Ticket</a></div>
+        </div>
+      </article>
+
+      <article class="card" data-title="Gorillaz — The Mountain Tour UK & Ireland 2026">
+        <svg class="event-art" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="go-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#064e3b"/><stop offset="100%" stop-color="#0a0a1a"/></linearGradient>
+            <linearGradient id="go-mn" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#10b981" stop-opacity=".7"/><stop offset="100%" stop-color="#059669" stop-opacity=".2"/></linearGradient>
+          </defs>
+          <rect width="400" height="180" fill="url(#go-bg)"/>
+          <polygon points="0,140 80,50 160,140" fill="url(#go-mn)" opacity=".5"/>
+          <polygon points="60,140 160,30 260,140" fill="url(#go-mn)" opacity=".7"/>
+          <polygon points="140,140 240,55 340,140" fill="url(#go-mn)" opacity=".5"/>
+          <polygon points="240,140 340,65 400,140" fill="url(#go-mn)" opacity=".4"/>
+          <polygon points="80,50 72,70 88,70" fill="#fff" opacity=".6"/>
+          <polygon points="160,30 150,55 170,55" fill="#fff" opacity=".7"/>
+          <polygon points="240,55 232,72 248,72" fill="#fff" opacity=".5"/>
+          <polygon points="340,65 333,80 347,80" fill="#fff" opacity=".4"/>
+          <circle cx="30" cy="20" r="1" fill="#10b981" opacity=".8"/><circle cx="380" cy="15" r="1.2" fill="#34d399" opacity=".7"/>
+          <circle cx="310" cy="25" r=".8" fill="#6ee7b7" opacity=".9"/><circle cx="100" cy="18" r="1" fill="#10b981" opacity=".7"/>
+          <circle cx="200" cy="10" r="1.5" fill="#34d399" opacity=".8"/>
+          <circle cx="200" cy="22" r="10" fill="#10b981" opacity=".15"/>
+          <circle cx="200" cy="22" r="5" fill="#34d399" opacity=".35"/>
+          <circle cx="200" cy="22" r="2.5" fill="#6ee7b7" opacity=".7"/>
+          <text x="200" y="163" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" fill="#10b981" opacity=".9" letter-spacing="2.5">UK &amp; IRELAND TOUR · 2026</text>
+        </svg>
+        <div class="card-body">
+          <span class="cat-pill">Concert</span>
+          <div class="badge">🔥 High demand</div>
+          <h3>Gorillaz — The Mountain Tour</h3>
+          <p class="price">From <strong>€110</strong></p>
+          <div class="card-actions"><a class="btn btn-outline small" href="#contact" data-prefill="Gorillaz — The Mountain Tour UK & Ireland 2026">Request This Ticket</a></div>
+        </div>
+      </article>
+
+    </div><!-- /concerts -->
+
+    <!-- Sports -->
+    <div class="events-grid" style="margin-top:20px">
+
+      <article class="card" data-title="Premier League Fixtures 2025/26">
+        <svg class="event-art" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="pl-bg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#1a0050"/><stop offset="100%" stop-color="#3d0090"/></linearGradient>
+          </defs>
+          <rect width="400" height="180" fill="url(#pl-bg)"/>
+          <path d="M20,160 Q200,-20 380,160" fill="none" stroke="#7c3aed" stroke-width="2" opacity=".4"/>
+          <path d="M40,160 Q200,10 360,160" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity=".3"/>
+          <path d="M60,160 Q200,30 340,160" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity=".3"/>
+          <ellipse cx="200" cy="155" rx="170" ry="35" fill="#166534" opacity=".9"/>
+          <ellipse cx="200" cy="155" rx="55" ry="15" fill="none" stroke="#16a34a" stroke-width="1" opacity=".6"/>
+          <line x1="30" y1="155" x2="370" y2="155" stroke="#16a34a" stroke-width=".8" opacity=".4"/>
+          <circle cx="200" cy="155" r="3" fill="#16a34a" opacity=".8"/>
+          <circle cx="90" cy="65" r="3" fill="#a78bfa" opacity=".5"/><circle cx="130" cy="48" r="3" fill="#ddd6fe" opacity=".5"/>
+          <circle cx="170" cy="40" r="3" fill="#a78bfa" opacity=".5"/><circle cx="200" cy="38" r="3" fill="#c4b5fd" opacity=".5"/>
+          <circle cx="230" cy="40" r="3" fill="#ddd6fe" opacity=".5"/><circle cx="270" cy="48" r="3" fill="#a78bfa" opacity=".5"/>
+          <circle cx="310" cy="65" r="3" fill="#ddd6fe" opacity=".5"/>
+          <circle cx="200" cy="130" r="8" fill="#fff" opacity=".9"/>
+          <path d="M196,123 L204,123 L207,130 L200,135 L193,130Z" fill="#333" opacity=".4"/>
+          <text x="200" y="12" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" fill="#a78bfa" opacity=".9" letter-spacing="2.5">PREMIER LEAGUE · 2025/26 SEASON</text>
+        </svg>
+        <div class="card-body">
+          <span class="cat-pill">Football</span>
           <div class="badge">🔥 High demand</div>
           <h3>Premier League Fixtures</h3>
-          <p class="price">From <strong>€45</strong></p>
-          <div class="card-actions">
-            <a class="btn btn-outline small" href="#contact" data-prefill="Premier League Fixtures">Request This Ticket</a>
-          </div>
-        </article>
+          <p class="price">From <strong>€55</strong></p>
+          <div class="card-actions"><a class="btn btn-outline small" href="#contact" data-prefill="Premier League Fixtures 2025/26">Request This Ticket</a></div>
+        </div>
+      </article>
 
-        <article class="card event" data-title="Bundesliga Fixtures">
-          <img src="images/bundesliga.jpg" alt="Bundesliga Fixtures" class="event-img">
-          <div class="badge">🔥 High demand</div>
-          <h3>Bundesliga Fixtures</h3>
-          <p class="price">From <strong>€40</strong></p>
-          <div class="card-actions">
-            <a class="btn btn-outline small" href="#contact" data-prefill="Bundesliga Fixtures">Request This Ticket</a>
-          </div>
-        </article>
-
-        <article class="card event" data-title="La Liga Fixtures">
-          <img src="images/laliga.jpg" alt="La Liga Fixtures" class="event-img">
+      <article class="card" data-title="La Liga Fixtures 2025/26">
+        <svg class="event-art" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ll-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7c0902"/><stop offset="100%" stop-color="#1a0000"/></linearGradient>
+          </defs>
+          <rect width="400" height="180" fill="url(#ll-bg)"/>
+          <rect x="0" y="55" width="400" height="70" fill="#f59e0b" opacity=".10"/>
+          <circle cx="60" cy="25" r="12" fill="#fbbf24" opacity=".15"/><circle cx="60" cy="25" r="6" fill="#fbbf24" opacity=".3"/>
+          <circle cx="340" cy="25" r="12" fill="#fbbf24" opacity=".15"/><circle cx="340" cy="25" r="6" fill="#fbbf24" opacity=".3"/>
+          <rect x="50" y="118" width="300" height="52" rx="4" fill="#15803d" opacity=".9"/>
+          <rect x="50" y="118" width="300" height="52" rx="4" fill="none" stroke="#166534" stroke-width="1.5"/>
+          <line x1="200" y1="118" x2="200" y2="170" stroke="#16a34a" stroke-width=".8" opacity=".5"/>
+          <ellipse cx="200" cy="144" rx="30" ry="12" fill="none" stroke="#16a34a" stroke-width=".8" opacity=".5"/>
+          <rect x="50" y="130" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.5" opacity=".6"/>
+          <rect x="330" y="130" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.5" opacity=".6"/>
+          <text x="200" y="108" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" fill="#fbbf24" opacity=".9" letter-spacing="2.5">LA LIGA · 2025/26 SEASON</text>
+        </svg>
+        <div class="card-body">
+          <span class="cat-pill">Football</span>
           <div class="badge">🔥 High demand</div>
           <h3>La Liga Fixtures</h3>
-          <p class="price">From <strong>€35</strong></p>
-          <div class="card-actions">
-            <a class="btn btn-outline small" href="#contact" data-prefill="La Liga Fixtures">Request This Ticket</a>
-          </div>
-        </article>
+          <p class="price">From <strong>€40</strong></p>
+          <div class="card-actions"><a class="btn btn-outline small" href="#contact" data-prefill="La Liga Fixtures 2025/26">Request This Ticket</a></div>
+        </div>
+      </article>
 
-        <article class="card event" data-title="Tennis Grand Slams">
-          <img src="images/grandslams.jpg" alt="Tennis Grand Slams" class="event-img">
+      <article class="card" data-title="Tennis Grand Slams 2026">
+        <svg class="event-art" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="tn-bg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#431407"/><stop offset="100%" stop-color="#7c2d12"/></linearGradient>
+          </defs>
+          <rect width="400" height="180" fill="url(#tn-bg)"/>
+          <rect x="40" y="50" width="320" height="120" rx="3" fill="#c2440c" opacity=".8"/>
+          <rect x="40" y="50" width="320" height="120" rx="3" fill="none" stroke="#fff" stroke-width="2" opacity=".7"/>
+          <line x1="200" y1="50" x2="200" y2="170" stroke="#fff" stroke-width="1.5" opacity=".6"/>
+          <line x1="40" y1="110" x2="360" y2="110" stroke="#fff" stroke-width="3" opacity=".9"/>
+          <line x1="200" y1="105" x2="200" y2="115" stroke="#fff" stroke-width="2.5" opacity=".9"/>
+          <rect x="100" y="70" width="200" height="80" fill="none" stroke="#fff" stroke-width="1" opacity=".4"/>
+          <rect x="160" y="70" width="80" height="80" fill="none" stroke="#fff" stroke-width="1" opacity=".4"/>
+          <circle cx="230" cy="88" r="7" fill="#d4f252"/>
+          <path d="M225,84 Q230,80 235,84" fill="none" stroke="#fff" stroke-width="1.2" opacity=".6"/>
+          <path d="M225,92 Q230,96 235,92" fill="none" stroke="#fff" stroke-width="1.2" opacity=".6"/>
+          <rect x="0" y="0" width="400" height="50" fill="#1a0800" opacity=".8"/>
+          <text x="200" y="32" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" fill="#fb923c" opacity=".9" letter-spacing="2.5">GRAND SLAMS · ROLAND GARROS &amp; WIMBLEDON</text>
+        </svg>
+        <div class="card-body">
+          <span class="cat-pill">Tennis</span>
           <div class="badge">🔥 High demand</div>
-          <h3>Tennis Grand Slams</h3>
+          <h3>Tennis Grand Slams 2026</h3>
           <p class="price">From <strong>€90</strong></p>
-          <div class="card-actions">
-            <a class="btn btn-outline small" href="#contact" data-prefill="Tennis Grand Slams">Request This Ticket</a>
-          </div>
-        </article>
-      </div>
-
-      <!-- Concerts Row -->
-      <div class="grid events-grid" style="margin-top:40px">
-        <article class="card event" data-title="Bad Bunny — Europe Tour">
-          <div class="badge">🔥 High demand</div>
-          <h3>Bad Bunny — Europe Tour</h3>
-          <p class="price">From <strong>€180</strong></p>
-          <div class="card-actions">
-            <a class="btn btn-outline small" href="#contact" data-prefill="Bad Bunny — Europe Tour">Request This Ticket</a>
-          </div>
-        </article>
-
-        <article class="card event" data-title="Oasis — United Kingdom Tour">
-          <div class="badge">🔥 High demand</div>
-          <h3>Oasis — United Kingdom Tour</h3>
-          <p class="price">From <strong>€150</strong></p>
-          <div class="card-actions">
-            <a class="btn btn-outline small" href="#contact" data-prefill="Oasis — United Kingdom Tour">Request This Ticket</a>
-          </div>
-        </article>
-
-        <article class="card event" data-title="Coldplay — United Kingdom Tour">
-          <div class="badge">🔥 High demand</div>
-          <h3>Coldplay — United Kingdom Tour</h3>
-          <p class="price">From <strong>€120</strong></p>
-          <div class="card-actions">
-            <a class="btn btn-outline small" href="#contact" data-prefill="Coldplay — United Kingdom Tour">Request This Ticket</a>
-          </div>
-        </article>
-
-        <article class="card event" data-title="Lady Gaga — Europe & United Kingdom Tour">
-          <div class="badge">🔥 High demand</div>
-          <h3>Lady Gaga — Europe &amp; United Kingdom Tour</h3>
-          <p class="price">From <strong>€130</strong></p>
-          <div class="card-actions">
-            <a class="btn btn-outline small" href="#contact" data-prefill="Lady Gaga — Europe & United Kingdom Tour">Request This Ticket</a>
-          </div>
-        </article>
-      </div>
-
-      <!-- ======= Callout ======= -->
-      <div class="callout">
-        <h3 class="callout-title">Can’t find your event?</h3>
-        <p class="callout-text">Tell us what you need — concerts, sports, theatre, festivals — <strong>we work worldwide</strong>.</p>
-        <div class="callout-row">
-          <label class="sr-only" for="quickEvent">Event or team</label>
-          <input id="quickEvent" type="text" placeholder="e.g., Beyoncé in Paris, El Clásico, Coachella…" />
-          <button id="quickRequestBtn" class="btn btn-primary">Request This Event</button>
+          <div class="card-actions"><a class="btn btn-outline small" href="#contact" data-prefill="Tennis Grand Slams 2026">Request This Ticket</a></div>
         </div>
-        <small class="muted">We’ll pre-fill the form below so you can add date/city and any notes.</small>
+      </article>
+
+      <article class="card" data-title="NFL International Games — London 2026">
+        <svg class="event-art" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="nf-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#012169"/><stop offset="100%" stop-color="#001033"/></linearGradient>
+          </defs>
+          <rect width="400" height="180" fill="url(#nf-bg)"/>
+          <rect x="20" y="90" width="360" height="80" rx="4" fill="#15803d" opacity=".95"/>
+          <line x1="56" y1="90" x2="56" y2="170" stroke="#fff" stroke-width=".8" opacity=".3"/>
+          <line x1="92" y1="90" x2="92" y2="170" stroke="#fff" stroke-width=".8" opacity=".3"/>
+          <line x1="128" y1="90" x2="128" y2="170" stroke="#fff" stroke-width=".8" opacity=".3"/>
+          <line x1="164" y1="90" x2="164" y2="170" stroke="#fff" stroke-width=".8" opacity=".3"/>
+          <line x1="200" y1="90" x2="200" y2="170" stroke="#fff" stroke-width="1.5" opacity=".5"/>
+          <line x1="236" y1="90" x2="236" y2="170" stroke="#fff" stroke-width=".8" opacity=".3"/>
+          <line x1="272" y1="90" x2="272" y2="170" stroke="#fff" stroke-width=".8" opacity=".3"/>
+          <line x1="308" y1="90" x2="308" y2="170" stroke="#fff" stroke-width=".8" opacity=".3"/>
+          <line x1="344" y1="90" x2="344" y2="170" stroke="#fff" stroke-width=".8" opacity=".3"/>
+          <rect x="20" y="90" width="36" height="80" fill="#1d4ed8" opacity=".4"/>
+          <rect x="344" y="90" width="36" height="80" fill="#dc2626" opacity=".4"/>
+          <line x1="200" y1="20" x2="200" y2="90" stroke="#fbbf24" stroke-width="2.5"/>
+          <line x1="180" y1="45" x2="220" y2="45" stroke="#fbbf24" stroke-width="2.5"/>
+          <line x1="180" y1="45" x2="180" y2="20" stroke="#fbbf24" stroke-width="2"/>
+          <line x1="220" y1="45" x2="220" y2="20" stroke="#fbbf24" stroke-width="2"/>
+          <ellipse cx="200" cy="130" rx="12" ry="8" fill="#92400e" stroke="#fbbf24" stroke-width=".8"/>
+          <line x1="190" y1="130" x2="210" y2="130" stroke="#fff" stroke-width=".8" opacity=".6"/>
+          <text x="200" y="75" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" fill="#fbbf24" opacity=".9" letter-spacing="2.5">NFL INTERNATIONAL · LONDON 2026</text>
+        </svg>
+        <div class="card-body">
+          <span class="cat-pill">American Football</span>
+          <div class="badge">🔥 High demand</div>
+          <h3>NFL International Games — London</h3>
+          <p class="price">From <strong>€80</strong></p>
+          <div class="card-actions"><a class="btn btn-outline small" href="#contact" data-prefill="NFL International Games — London 2026">Request This Ticket</a></div>
+        </div>
+      </article>
+
+      <article class="card" data-title="Bundesliga Fixtures 2025/26">
+        <svg class="event-art" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bu-bg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#111"/><stop offset="100%" stop-color="#1c0505"/></linearGradient>
+          </defs>
+          <rect width="400" height="180" fill="url(#bu-bg)"/>
+          <rect x="0" y="60" width="400" height="60" fill="#dc2626" opacity=".07"/>
+          <rect x="0" y="120" width="400" height="60" fill="#f59e0b" opacity=".06"/>
+          <path d="M10,165 Q100,30 200,20 Q300,30 390,165" fill="none" stroke="#dc2626" stroke-width="2" opacity=".5"/>
+          <path d="M30,165 Q110,55 200,45 Q290,55 370,165" fill="none" stroke="#f87171" stroke-width="1.5" opacity=".3"/>
+          <path d="M50,165 Q120,75 200,65 Q280,75 350,165" fill="none" stroke="#dc2626" stroke-width="1" opacity=".2"/>
+          <ellipse cx="200" cy="165" rx="170" ry="22" fill="#166534" opacity=".9"/>
+          <ellipse cx="200" cy="165" rx="110" ry="14" fill="none" stroke="#16a34a" stroke-width="1" opacity=".5"/>
+          <line x1="30" y1="165" x2="370" y2="165" stroke="#16a34a" stroke-width=".8" opacity=".4"/>
+          <circle cx="200" cy="152" r="7" fill="#fff" opacity=".85"/>
+          <path d="M196,146 L204,146 L206,152 L200,157 L194,152Z" fill="#333" opacity=".4"/>
+          <text x="200" y="15" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" fill="#dc2626" opacity=".9" letter-spacing="2.5">BUNDESLIGA · 2025/26 SEASON</text>
+        </svg>
+        <div class="card-body">
+          <span class="cat-pill">Football</span>
+          <div class="badge">🔥 High demand</div>
+          <h3>Bundesliga Fixtures</h3>
+          <p class="price">From <strong>€45</strong></p>
+          <div class="card-actions"><a class="btn btn-outline small" href="#contact" data-prefill="Bundesliga Fixtures 2025/26">Request This Ticket</a></div>
+        </div>
+      </article>
+
+    </div><!-- /sports -->
+
+    <!-- Callout -->
+    <div class="callout">
+      <h3 class="callout-title">Can't find your event?</h3>
+      <p class="callout-text">Tell us what you need — concerts, sports, theatre, festivals — <strong>we work worldwide</strong>.</p>
+      <div class="callout-row">
+        <label class="sr-only" for="quickEvent">Event or artist</label>
+        <input id="quickEvent" type="text" placeholder="e.g., Beyoncé in Paris, El Clásico, Coachella…" />
+        <button id="quickRequestBtn" class="btn btn-primary">Request This Event</button>
       </div>
+      <p class="muted-small">We'll pre-fill the form below so you can add date/city and any notes.</p>
     </div>
-  </section>
 
-  <!-- ======= How It Works ======= -->
-  <section id="how" class="section soft">
-    <div class="container">
-      <h2 class="section-title">How It Works</h2>
-      <div class="grid three">
-        <div class="step">
-          <span class="step-num">1</span>
-          <h3>Request tickets</h3>
-          <p>Tell us what event you need tickets for and your preferences.</p>
-        </div>
-        <div class="step">
-          <span class="step-num">2</span>
-          <h3>Get a quote</h3>
-          <p>We’ll find the best available options and send you a quote.</p>
-        </div>
-        <div class="step">
-          <span class="step-num">3</span>
-          <h3>Confirm &amp; receive</h3>
-          <p>Secure payment and instant delivery to your phone or email.</p>
-        </div>
-      </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section soft">
+  <div class="container">
+    <div class="section-label">Transparency first</div>
+    <h2 class="section-title">Pricing &amp; Fees</h2>
+    <div class="pricing-card">
+      <p>As service providers in the secondary market, our ticket prices reflect current market demand and availability. Prices start from the amounts shown and may vary based on seating location, demand, and timing.</p>
+      <p>There are no hidden fees — all costs are disclosed before you confirm your request.</p>
+      <div class="guarantee-badge">✅ &nbsp;Full refund if your event is canceled and not rescheduled. Your purchase is protected with our guarantee.</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ======= Pricing ======= -->
-  <section id="pricing" class="section soft">
-    <div class="container">
-      <h2 class="section-title">Pricing &amp; Fees</h2>
-      <p class="lead">
-        As service providers in the secondary market, our ticket prices reflect current market demand and availability.
-        Prices start from the amounts shown and may vary based on seating location, demand, and timing.
-      </p>
-      <p class="guarantee">We offer full refunds if your event is canceled and not rescheduled. Your purchase is protected with our guarantee.</p>
-    </div>
-  </section>
-
-  <!-- ======= FAQ ======= -->
-  <section id="faq" class="section">
-    <div class="container">
-      <h2 class="section-title">Frequently Asked Questions</h2>
-
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="container">
+    <div class="section-label">Got questions?</div>
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-list">
       <details class="faq">
         <summary>How do you deliver tickets?</summary>
-        <div class="faq-body">Most tickets are delivered via secure mobile transfer or e-tickets. Instructions are provided with your order.</div>
+        <div class="faq-body">Most tickets are delivered via secure mobile transfer or e-tickets sent directly to your email. Full instructions are provided with your order confirmation.</div>
       </details>
-
       <details class="faq">
         <summary>Do you serve international buyers?</summary>
-        <div class="faq-body">Absolutely — we regularly assist international clients and provide clear delivery instructions.</div>
+        <div class="faq-body">Absolutely — we regularly assist international clients and provide clear delivery instructions. We serve buyers worldwide, with a strong focus on UK, Spain, Germany, and US events.</div>
       </details>
-
       <details class="faq">
         <summary>How quickly can you find last-minute tickets?</summary>
-        <div class="faq-body">Often the same day. Average response time is <strong>under 1 hour</strong>.</div>
+        <div class="faq-body">Often the same day. Our average response time is <strong>under 1 hour</strong>. For truly last-minute requests, contact us directly via WhatsApp for the fastest response.</div>
       </details>
-
       <details class="faq">
         <summary>Do you handle group orders?</summary>
-        <div class="faq-body">Yes, we can source adjacent or nearby seats for groups. Add this in your request.</div>
+        <div class="faq-body">Yes — we can source adjacent or nearby seats for groups of any size. Just mention the group size and seating preference in your request.</div>
+      </details>
+      <details class="faq">
+        <summary>What payment methods do you accept?</summary>
+        <div class="faq-body">We accept bank transfers, credit/debit cards, and PayPal. Payment details are shared after you confirm your quote. We never ask for payment before sending a confirmed quote.</div>
       </details>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ======= Contact / Lead Form ======= -->
-  <section id="contact" class="section soft">
-    <div class="container">
-      <h2 class="section-title">Get Tickets / Request a Quote</h2>
-      <p class="muted" style="text-align:center;margin:-6px 0 14px"><strong>Average response time: under 1 hour.</strong></p>
-
-      <form class="lead-form"
-            name="request"
-            method="POST"
-            action="/success.html"
-            data-netlify="true"
-            netlify-honeypot="bot-field">
+<!-- CONTACT FORM -->
+<section id="contact" class="section soft">
+  <div class="container">
+    <div class="section-label">Ready to go?</div>
+    <h2 class="section-title" style="margin-bottom:12px">Get Tickets / Request a Quote</h2>
+    <div class="form-wrapper">
+      <p class="form-note-top"><strong>Average response time: under 1 hour.</strong> We'll get back to you with the best available options.</p>
+      <form name="request" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="request" />
         <input type="hidden" name="form_source" value="ialbseats.com" />
-        <p class="hidden">
-          <label>Don’t fill this out: <input name="bot-field" /></label>
-        </p>
-
+        <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
         <div class="form-grid">
-          <label>
-            Name *
-            <input required type="text" name="name" autocomplete="name" />
-          </label>
-
-          <label>
-            Email *
-            <input required type="email" name="email" autocomplete="email" />
-          </label>
-
-          <label>
-            Phone/WhatsApp (optional)
-            <input type="tel" name="phone" placeholder="+34 612 345 678" />
-          </label>
-
-          <label>
-            Event/Artist *
-            <input required type="text" name="event" id="eventField" />
-          </label>
-
-          <label>
-            Date/City *
-            <input required type="text" name="details" placeholder="e.g., Oct 2025 — London" />
-          </label>
-
-          <label>
-            Quantity *
+          <label>Name * <input required type="text" name="name" autocomplete="name" placeholder="Your full name" /></label>
+          <label>Email * <input required type="email" name="email" autocomplete="email" placeholder="you@email.com" /></label>
+          <label>Phone / WhatsApp (optional) <input type="tel" name="phone" placeholder="+34 612 345 678" /></label>
+          <label>Event / Artist * <input required type="text" name="event" id="eventField" placeholder="e.g., Harry Styles, La Liga…" /></label>
+          <label>Date / City * <input required type="text" name="details" placeholder="e.g., Jun 2026 — London" /></label>
+          <label>Quantity *
             <select required name="quantity">
               <option value="" disabled selected>Select quantity</option>
-              <option>1</option><option>2</option><option>3</option><option>4</option>
-              <option>5</option><option>6</option>
+              <option value="1">1 ticket</option>
+              <option value="2">2 tickets</option>
+              <option value="3">3 tickets</option>
+              <option value="4">4 tickets</option>
+              <option value="5">5 tickets</option>
+              <option value="6">6+ tickets</option>
             </select>
           </label>
-
-          <label>
-            Budget (optional)
-            <input type="text" name="budget" placeholder="e.g., €200 per ticket" />
-          </label>
-
-          <label class="span-2">
-            Additional Notes
-            <textarea name="notes" rows="4" placeholder="Seating preference, timeframe, special requests…"></textarea>
-          </label>
-
-          <!-- Legal consent (required) -->
-          <label class="span-2 consent">
+          <label>Budget (optional) <input type="text" name="budget" placeholder="e.g., €200 per ticket" /></label>
+          <label class="span-2">Additional Notes <textarea name="notes" rows="4" placeholder="Seating preference, urgency, special requests…"></textarea></label>
+          <label class="span-2 consent-label">
             <input required type="checkbox" name="consent" value="yes" />
             <span>I agree to the <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>, and consent to be contacted regarding my request.</span>
           </label>
         </div>
-
         <div class="form-actions">
           <button class="btn btn-primary" type="submit">Send Request</button>
           <button type="button" id="mailtoBtn" class="btn btn-outline">Email This Request</button>
         </div>
+        <p class="form-legal">By submitting this form you confirm that the information provided is accurate and you consent to being contacted about your ticket request. We do not share your data with third parties.</p>
+      </form>
+    </div>
+  </div>
+</section>
 
-        <p class="form-note">
-          By submitting this form you confirm that the information provided is accurate and you consent to
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">ialbseats</div>
+        <div class="footer-tagline">Sold-out tickets, secured fast.</div>
+        <a class="footer-email" href="mailto:info@ialbseats.com">info@ialbseats.com</a>
+        <div class="footer-social" style="margin-top:14px">
+          <a href="https://instagram.com/ialbseats" target="_blank" rel="noopener">@ialbseats on Instagram</a>
+        </div>
+      </div>
+      <nav class="footer-nav">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Get Tickets</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> ialbseats. All rights reserved.</span>
+      <span>Secondary market ticket provider. Prices may exceed face value. ialbseats is not affiliated with artists, teams, venues, or promoters.</span>
+    </div>
+  </div>
+</footer>
+<script>
+/* ============================================================
+   ialbseats — Global Script
+   ============================================================ */
+
+/* Mobile nav toggle */
+const navToggle = document.querySelector('.nav-toggle');
+const primaryNav = document.getElementById('primary-nav');
+
+if (navToggle && primaryNav) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = primaryNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  primaryNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      primaryNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+/* Prefill event field from card "Request" buttons */
+document.querySelectorAll('[data-prefill]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const field = document.getElementById('eventField');
+    if (field) field.value = btn.getAttribute('data-prefill');
+  });
+});
+
+/* Quick event search box */
+const quickBtn   = document.getElementById('quickRequestBtn');
+const quickInput = document.getElementById('quickEvent');
+
+if (quickBtn && quickInput) {
+  quickBtn.addEventListener('click', () => {
+    const val   = quickInput.value.trim();
+    const field = document.getElementById('eventField');
+    if (!val) { quickInput.focus(); return; }
+    if (field) field.value = val;
+    const contact = document.getElementById('contact');
+    if (contact) contact.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  quickInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') quickBtn.click();
+  });
+}
+
+/* "Email This Request" mailto fallback */
+const mailtoBtn = document.getElementById('mailtoBtn');
+
+if (mailtoBtn) {
+  mailtoBtn.addEventListener('click', () => {
+    const get = name => (document.querySelector('[name="' + name + '"]') || {}).value || '';
+    const event = get('event');
+
+    const lines = [
+      'Name: '           + get('name'),
+      'Email: '          + get('email'),
+      get('phone') ? 'Phone/WhatsApp: ' + get('phone') : '',
+      'Event/Artist: '   + event,
+      'Date/City: '      + get('details'),
+      'Quantity: '       + get('quantity'),
+      get('budget') ? 'Budget: ' + get('budget') : '',
+      get('notes')  ? 'Notes:\n'  + get('notes')  : '',
+    ].filter(Boolean);
+
+    const subject = encodeURIComponent('Ticket Request: ' + (event || 'New Inquiry'));
+    const body    = encodeURIComponent(lines.join('\n'));
+    const url     = 'mailto:info@ialbseats.com?subject=' + subject + '&body=' + body;
+
+    if (url.length < 2000) {
+      window.location.href = url;
+    } else {
+      alert('Message too long for email link — please use the Send Request button instead.');
+      const form = document.querySelector('form[name="request"]');
+      if (form) form.requestSubmit();
+    }
+  });
+}
+
+/* Current year in footer */
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+/* Scroll-triggered fade-in for cards / steps / FAQs */
+if ('IntersectionObserver' in window) {
+  const targets = document.querySelectorAll('.card, .step, details.faq');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  targets.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    io.observe(el);
+  });
+}
+
+</script>
+</body>
+</html>
