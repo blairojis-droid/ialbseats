@@ -1,85 +1,79 @@
+/* ============================================================
+   ialbseats — Global Script
+   ============================================================ */
+
 /* Mobile nav toggle */
-const toggle = document.querySelector('.nav-toggle');
-const nav = document.querySelector('.nav');
-if (toggle && nav) {
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+const navToggle = document.querySelector('.nav-toggle');
+const primaryNav = document.getElementById('primary-nav');
+
+if (navToggle && primaryNav) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = primaryNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
   });
 
-  // Close nav on link click (mobile)
-  nav.addEventListener('click', e => {
-    if (e.target.matches('a') && nav.classList.contains('open')) {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
+  primaryNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      primaryNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
   });
 }
 
-/* Prefill “Event/Artist” when clicking Request buttons in cards */
-const links = document.querySelectorAll('[data-prefill]');
-const eventField = document.getElementById('eventField');
-links.forEach(a => {
-  a.addEventListener('click', () => {
-    const value = a.getAttribute('data-prefill');
-    if (eventField && value) {
-      eventField.value = value;
-    }
+/* Prefill event field from card "Request" buttons */
+document.querySelectorAll('[data-prefill]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const field = document.getElementById('eventField');
+    if (field) field.value = btn.getAttribute('data-prefill');
   });
 });
 
-/* Quick Request widget → prefill form and scroll to #contact */
-const quickBtn = document.getElementById('quickRequestBtn');
+/* Quick event search box */
+const quickBtn   = document.getElementById('quickRequestBtn');
 const quickInput = document.getElementById('quickEvent');
-if (quickBtn && quickInput && eventField) {
+
+if (quickBtn && quickInput) {
   quickBtn.addEventListener('click', () => {
-    const value = quickInput.value.trim();
-    if (!value) {
-      quickInput.focus();
-      return;
-    }
-    eventField.value = value;
-    location.hash = '#contact';
-    eventField.focus();
+    const val   = quickInput.value.trim();
+    const field = document.getElementById('eventField');
+    if (!val) { quickInput.focus(); return; }
+    if (field) field.value = val;
+    const contact = document.getElementById('contact');
+    if (contact) contact.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  quickInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') quickBtn.click();
   });
 }
 
-/* Mailto fallback button – build an email from form values */
+/* "Email This Request" mailto fallback */
 const mailtoBtn = document.getElementById('mailtoBtn');
+
 if (mailtoBtn) {
   mailtoBtn.addEventListener('click', () => {
-    const qs = n => (document.querySelector(`[name="${n}"]`) || {});
-    const val = n => (qs(n).value || '').toString().trim();
+    const get = name => (document.querySelector('[name="' + name + '"]') || {}).value || '';
+    const event = get('event');
 
-    const fields = {
-      name: val('name'),
-      email: val('email'),
-      phone: val('phone'),
-      event: val('event'),
-      details: val('details'),
-      quantity: val('quantity'),
-      budget: val('budget'),
-      notes: val('notes')
-    };
+    const lines = [
+      'Name: '           + get('name'),
+      'Email: '          + get('email'),
+      get('phone') ? 'Phone/WhatsApp: ' + get('phone') : '',
+      'Event/Artist: '   + event,
+      'Date/City: '      + get('details'),
+      'Quantity: '       + get('quantity'),
+      get('budget') ? 'Budget: ' + get('budget') : '',
+      get('notes')  ? 'Notes:\n'  + get('notes')  : '',
+    ].filter(Boolean);
 
-    const subject = `Ticket request — ${fields.event || 'New inquiry'}`;
-    const body =
-`Name: ${fields.name}
-Email: ${fields.email}
-Phone: ${fields.phone}
-Event/Artist: ${fields.event}
-Date/City: ${fields.details}
-Quantity: ${fields.quantity}
-Budget: ${fields.budget}
+    const subject = encodeURIComponent('Ticket Request: ' + (event || 'New Inquiry'));
+    const body    = encodeURIComponent(lines.join('\n'));
+    const url     = 'mailto:info@ialbseats.com?subject=' + subject + '&body=' + body;
 
-Notes:
-${fields.notes}`;
-
-    const url = `mailto:info@ialbseats.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    if (url.length < 1800) {
+    if (url.length < 2000) {
       window.location.href = url;
     } else {
-      alert('Message is too long for your email app. We’ll submit via the form instead.');
+      alert('Message too long for email link — please use the Send Request button instead.');
       const form = document.querySelector('form[name="request"]');
       if (form) form.requestSubmit();
     }
@@ -89,3 +83,24 @@ ${fields.notes}`;
 /* Current year in footer */
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+/* Scroll-triggered fade-in for cards / steps / FAQs */
+if ('IntersectionObserver' in window) {
+  const targets = document.querySelectorAll('.card, .step, details.faq');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  targets.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    io.observe(el);
+  });
+}
