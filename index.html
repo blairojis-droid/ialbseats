@@ -51,7 +51,7 @@ button,input,select,textarea{font-family:var(--ff-body)}
 .eyebrow{font-size:.6rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
 .gold-bar{display:block;width:40px;height:1px;background:var(--gold);margin:0 0 22px}
 .gold-bar.center{margin:0 auto 22px}
-.section{padding:112px 0}
+.section{padding:112px 0;scroll-margin-top:110px}
 .section-alt{background:var(--black2)}
 .section-header{margin-bottom:60px}
 .section-header.center{text-align:center}
@@ -79,7 +79,7 @@ button,input,select,textarea{font-family:var(--ff-body)}
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 96px;position:relative;overflow:hidden;background:var(--black)}
 .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
 .hero-vignette{position:absolute;inset:0;background:linear-gradient(170deg,rgba(10,10,10,.15) 0%,rgba(10,10,10,.5) 38%,rgba(10,10,10,.92) 75%,#0A0A0A 100%);z-index:1}
-.hero-content{position:relative;z-index:2;padding-top:76px}
+.hero-content{position:relative;z-index:2;padding-top:120px}
 .hero-eyebrow{font-size:.58rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:18px;margin-bottom:28px}
 .hero-eyebrow::before{content:"";display:block;width:36px;height:1px;background:var(--gold);flex-shrink:0}
 .hero-logo{margin-bottom:44px}
@@ -258,21 +258,21 @@ details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
 
 /* DISCLAIMER BANNER */
 .disclaimer-bar{
-  background:var(--black2);
+  background:rgba(0,0,0,.5);
   border-bottom:1px solid var(--border2);
-  padding:9px 0;
+  padding:7px 0;
   text-align:center;
 }
 .disclaimer-bar p{
-  font-size:.62rem;
-  color:rgba(249,245,237,.3);
-  letter-spacing:.07em;
+  font-size:.58rem;
+  color:rgba(249,245,237,.28);
+  letter-spacing:.06em;
   margin:0;
-  line-height:1.5;
+  line-height:1.4;
 }
 .disclaimer-bar em{
   font-style:normal;
-  color:rgba(249,245,237,.45);
+  color:rgba(249,245,237,.4);
 }
 </style>
 </head>
@@ -280,6 +280,11 @@ details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
 
 <!-- HEADER -->
 <header class="site-header" id="top">
+  <div class="disclaimer-bar">
+    <div class="container">
+      <p>IALB Seats is an independent secondary market concierge. <em>Access is sourced from verified third-party providers — prices reflect current market demand and may differ from original face value.</em></p>
+    </div>
+  </div>
   <div class="container header-inner">
     <a class="brand" href="#top" aria-label="IALB Seats home">
       <img src="images/logo1.png" alt="IALB Seats" />
@@ -300,13 +305,6 @@ details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
     </nav>
   </div>
 </header>
-
-<!-- DISCLAIMER BANNER -->
-<div class="disclaimer-bar">
-  <div class="container">
-    <p>IALB Seats is an independent secondary market concierge. <em>Access is sourced from verified third-party providers — prices reflect current market demand and may differ from original face value.</em></p>
-  </div>
-</div>
 
 <!-- HERO -->
 <section class="hero">
