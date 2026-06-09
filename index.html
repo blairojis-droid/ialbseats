@@ -255,6 +255,25 @@ details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
   .pillars-grid{grid-template-columns:1fr 1fr}
   .exp-subcat-grid{grid-template-columns:1fr}
 }
+
+/* DISCLAIMER BANNER */
+.disclaimer-bar{
+  background:var(--black2);
+  border-bottom:1px solid var(--border2);
+  padding:9px 0;
+  text-align:center;
+}
+.disclaimer-bar p{
+  font-size:.62rem;
+  color:rgba(249,245,237,.3);
+  letter-spacing:.07em;
+  margin:0;
+  line-height:1.5;
+}
+.disclaimer-bar em{
+  font-style:normal;
+  color:rgba(249,245,237,.45);
+}
 </style>
 </head>
 <body>
@@ -281,6 +300,13 @@ details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
     </nav>
   </div>
 </header>
+
+<!-- DISCLAIMER BANNER -->
+<div class="disclaimer-bar">
+  <div class="container">
+    <p>IALB Seats is an independent secondary market concierge. <em>Access is sourced from verified third-party providers — prices reflect current market demand and may differ from original face value.</em></p>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -762,7 +788,7 @@ details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
     </div>
     <div class="footer-bottom">
       <span>&copy; <span id="year"></span> IALB Seats. All rights reserved.</span>
-      <span>Independent luxury experiences concierge. Not affiliated with venues, artists, or promoters.</span>
+      <span>Independent secondary market concierge. Access sourced from verified providers. Prices may exceed face value. Not affiliated with venues, artists, or promoters.</span>
     </div>
   </div>
 </footer>
