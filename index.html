@@ -184,49 +184,18 @@ details.faq[open] summary{color:var(--white)}
 details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
 .faq-body{padding:0 0 22px;font-size:.76rem;color:var(--muted);line-height:1.95;letter-spacing:.025em;max-width:560px}
 
-/* ENQUIRY SECTION */
-.enquiry-layout{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start}
-.enquiry-intro h2{font-family:var(--ff-head);font-size:clamp(2rem,3.8vw,3.2rem);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:22px}
-.enquiry-intro h2 em{font-style:italic;color:var(--gold2)}
-.enquiry-intro p{font-size:.76rem;color:var(--muted);line-height:1.95;letter-spacing:.03em;margin-bottom:34px}
-.contact-list{display:flex;flex-direction:column;gap:18px}
-.contact-row{display:flex;align-items:flex-start;gap:16px;font-size:.72rem;color:rgba(249,245,237,.5);letter-spacing:.05em}
-.contact-icon{width:34px;height:34px;border:1px solid var(--gold3);display:grid;place-items:center;color:var(--gold);font-size:.85rem;flex-shrink:0}
-.contact-row strong{display:block;font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--white);margin-bottom:3px}
-.form-panel{background:var(--black2);border:1px solid var(--border2);padding:44px 40px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.form-grid .span-2{grid-column:span 2}
-.form-field{display:flex;flex-direction:column;gap:7px}
-.form-field label{font-size:.56rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold3)}
-.form-field input,.form-field select,.form-field textarea{background:var(--black3);border:1px solid rgba(201,168,76,.13);color:var(--white);padding:12px 15px;font-size:.8rem;letter-spacing:.025em;outline:none;transition:border-color .2s;width:100%;appearance:none}
-.form-field input::placeholder,.form-field textarea::placeholder{color:rgba(249,245,237,.18)}
-.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--gold3)}
-.form-field select option{background:var(--black3)}
-.form-field textarea{resize:vertical;min-height:96px}
-.consent-row{display:flex;align-items:flex-start;gap:13px;font-size:.69rem;color:rgba(249,245,237,.45);letter-spacing:.02em;line-height:1.7}
-.consent-row input[type="checkbox"]{
-  appearance:none;-webkit-appearance:none;
-  width:20px;height:20px;min-width:20px;flex-shrink:0;margin-top:1px;cursor:pointer;
-  border:1.5px solid var(--gold);background:var(--black3);
-  display:grid;place-items:center;transition:background .15s,border-color .15s;
-}
-.consent-row input[type="checkbox"]:hover{
-  border-color:var(--gold2);background:rgba(201,168,76,0.08);
-}
-.consent-row input[type="checkbox"]:checked{
-  background:var(--gold);border-color:var(--gold);
-}
-.consent-row input[type="checkbox"]:checked::after{
-  content:"";display:block;
-  width:5px;height:9px;
-  border:2px solid var(--black);border-top:none;border-left:none;
-  transform:rotate(45deg) translate(-1px,-1px);
-}
-.consent-row input[type="checkbox"]:focus{outline:2px solid var(--gold3);outline-offset:3px;}
-.consent-row a{color:var(--gold3);text-decoration:underline}
-.consent-row a:hover{color:var(--gold)}
-.form-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
-.form-legal{margin-top:18px;font-size:.65rem;color:rgba(249,245,237,.18);line-height:1.7;letter-spacing:.02em}
+/* CONTACT CARDS */
+.contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border3);border:1px solid var(--border3);max-width:900px;margin:0 auto}
+.contact-card{background:var(--black2);padding:44px 36px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;text-decoration:none;transition:background .25s;position:relative;overflow:hidden}
+.contact-card:hover{background:var(--black3)}
+.contact-card-icon{width:52px;height:52px;border:1px solid var(--gold3);display:grid;place-items:center;flex-shrink:0;transition:transform .2s}
+.contact-card:hover .contact-card-icon{transform:scale(1.06)}
+.contact-card-body{display:flex;flex-direction:column;gap:5px;flex:1}
+.contact-card-label{font-size:.58rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.contact-card-value{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;font-weight:400;color:var(--white);letter-spacing:.02em}
+.contact-card-note{font-size:.72rem;color:var(--muted);letter-spacing:.03em}
+.contact-card-arrow{font-size:1.2rem;color:var(--gold3);margin-top:auto;transition:transform .2s,color .2s}
+.contact-card:hover .contact-card-arrow{transform:translateX(6px);color:var(--gold)}
 
 /* FOOTER */
 .site-footer{background:var(--black);border-top:1px solid var(--border2);padding:72px 0 32px}
@@ -267,6 +236,8 @@ details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
   .enquiry-callout{flex-direction:column;padding:32px 28px}
   .guarantee-block{padding:40px 28px}
 }
+
+@media(max-width:700px){.contact-cards{grid-template-columns:1fr}}
 @media(max-width:720px){
   .nav-toggle{display:flex}
   .nav{display:none;position:fixed;top:76px;left:0;right:0;background:rgba(10,10,10,.98);flex-direction:column;padding:20px 28px 32px;border-bottom:1px solid var(--border2);gap:0}
@@ -275,9 +246,7 @@ details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
   .nav a:last-child{border-bottom:none}
   .nav-cta{margin-left:0!important;text-align:center;margin-top:10px}
   .section{padding:72px 0}
-  .form-grid{grid-template-columns:1fr}
-  .form-grid .span-2{grid-column:span 1}
-  .form-panel{padding:28px 22px}
+
   .hero{padding-bottom:72px}
   .hero-logo img{height:58px}
   .hero h1{font-size:clamp(2.6rem,10vw,3.8rem)}
@@ -692,105 +661,63 @@ details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
   </div>
 </section>
 
-<!-- ENQUIRY -->
+<!-- ENQUIRE / CONTACT -->
 <section id="enquire" class="section">
   <div class="container">
-    <div class="enquiry-layout">
-      <div class="enquiry-intro">
-        <span class="eyebrow">Begin Here</span>
-        <span class="gold-bar"></span>
-        <h2>Your Seat is<br><em>Waiting</em></h2>
-        <p>Tell us the experience you have in mind. We respond within 2 hours with your tailored proposal — no generic packages, no automated replies. A personal response, every time.</p>
-        <div class="contact-list">
-          <div class="contact-row">
-            <div class="contact-icon">✉</div>
-            <div><strong>Email</strong><a href="mailto:info@ialbseats.com" style="color:var(--muted)">info@ialbseats.com</a></div>
-          </div>
-          <div class="contact-row">
-            <div class="contact-icon">◎</div>
-            <div><strong>Response Time</strong><span>Within 2 hours · Mon – Sat</span></div>
-          </div>
-          <div class="contact-row">
-            <div class="contact-icon" style="border-color:rgba(37,211,102,.4);color:#25D366">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            </div>
-            <div><strong>WhatsApp</strong><a href="https://wa.me/971585633295" target="_blank" rel="noopener" style="color:var(--muted)">+971 58 563 3295</a></div>
-          </div>
-          <div class="contact-row">
-            <div class="contact-icon">◆</div>
-            <div><strong>Instagram</strong><a href="https://instagram.com/ialbseats" target="_blank" rel="noopener" style="color:var(--muted)">@ialbseats</a></div>
-          </div>
-        </div>
-      </div>
-      <div class="form-panel">
-        <form id="enquiryForm" name="request" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="request" />
-          <input type="hidden" name="subject"   value="New Enquiry — IALB Seats" />
-          <p class="hidden"><label>Do not fill this out: <input name="bot-field" /></label></p>
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="f-name">Full Name *</label>
-              <input id="f-name" required type="text" name="name" autocomplete="name" placeholder="Your name" />
-            </div>
-            <div class="form-field">
-              <label for="f-email">Email Address *</label>
-              <input id="f-email" required type="email" name="email" autocomplete="email" placeholder="you@email.com" />
-            </div>
-            <div class="form-field">
-              <label for="f-phone">WhatsApp / Phone</label>
-              <input id="f-phone" type="tel" name="phone" placeholder="+44 7700 000000" />
-            </div>
-            <div class="form-field">
-              <label for="f-event">Experience / Event *</label>
-              <input id="f-event" required type="text" name="event" placeholder="e.g. Wimbledon, Monaco GP…" />
-            </div>
-            <div class="form-field">
-              <label for="f-date">Date &amp; Location *</label>
-              <input id="f-date" required type="text" name="details" placeholder="e.g. July 2026 — London" />
-            </div>
-            <div class="form-field">
-              <label for="f-qty">Number of Guests *</label>
-              <select id="f-qty" required name="quantity">
-                <option value="" disabled selected>Select</option>
-                <option value="1">1 guest</option>
-                <option value="2">2 guests</option>
-                <option value="3">3 guests</option>
-                <option value="4">4 guests</option>
-                <option value="5">5 guests</option>
-                <option value="6+">6+ guests</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="f-budget">Budget Range</label>
-              <input id="f-budget" type="text" name="budget" placeholder="e.g. €2,000 – €5,000" />
-            </div>
-            <div class="form-field span-2">
-              <label for="f-notes">Additional Details</label>
-              <textarea id="f-notes" name="notes" placeholder="Seating preferences, special occasions, hospitality requirements…"></textarea>
-            </div>
-            <div class="form-field span-2">
-              <div class="consent-row">
-                <input required type="checkbox" name="consent" id="consent" value="yes" />
-                <label for="consent" style="cursor:pointer;font-size:.69rem;color:rgba(249,245,237,.45);letter-spacing:.02em;line-height:1.7;font-weight:400;text-transform:none;">I agree to the <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>, and consent to being contacted regarding my enquiry.</label>
-              </div>
-            </div>
-          </div>
-          <div class="form-actions">
-            <button class="btn btn-gold" type="submit" id="submitBtn">
-              <span id="submitLabel">Submit Enquiry</span>
-            </button>
-            <button type="button" id="mailtoBtn" class="btn btn-outline-gold">Send via Email</button>
-          </div>
-          <div id="formSuccess" style="display:none;margin-top:24px;padding:20px 24px;border:1px solid var(--gold);background:rgba(201,168,76,0.06);">
-            <p style="font-size:.78rem;color:var(--gold2);letter-spacing:.04em;margin:0;">◆ &nbsp;Enquiry received. We will respond personally within 2 hours.</p>
-          </div>
-          <div id="formError" style="display:none;margin-top:24px;padding:20px 24px;border:1px solid #c0392b;background:rgba(192,57,43,0.08);">
-            <p style="font-size:.78rem;color:#e74c3c;letter-spacing:.04em;margin:0;">Something went wrong. Please use the Email button below or contact us directly at info@ialbseats.com</p>
-          </div>
-          <p class="form-legal">By submitting this enquiry you confirm the information provided is accurate. IALB Seats does not share your details with third parties. All access is confirmed in writing before any payment is requested.</p>
-        </form>
-      </div>
+    <div class="section-header center">
+      <span class="eyebrow">Get in Touch</span>
+      <span class="gold-bar center"></span>
+      <h2 class="section-title">Ready to <em>Access</em><br>the World&#39;s Greatest<br>Experiences?</h2>
+      <p class="section-lead" style="margin:16px auto 0;text-align:center;max-width:480px">Reach out via any of the channels below. We respond within 2 hours, Monday to Saturday — personally, every time.</p>
     </div>
+
+    <div class="contact-cards">
+
+      <!-- Email -->
+      <a class="contact-card" href="mailto:info@ialbseats.com">
+        <div class="contact-card-icon" style="color:var(--gold);border-color:var(--gold3)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+        </div>
+        <div class="contact-card-body">
+          <span class="contact-card-label">Email</span>
+          <span class="contact-card-value">info@ialbseats.com</span>
+          <span class="contact-card-note">Detailed enquiries &amp; proposals</span>
+        </div>
+        <span class="contact-card-arrow">→</span>
+      </a>
+
+      <!-- WhatsApp -->
+      <a class="contact-card contact-card-wa" href="https://wa.me/971585633295" target="_blank" rel="noopener">
+        <div class="contact-card-icon" style="color:#25D366;border-color:rgba(37,211,102,.4)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div class="contact-card-body">
+          <span class="contact-card-label">WhatsApp</span>
+          <span class="contact-card-value">+971 58 563 3295</span>
+          <span class="contact-card-note">Fastest response · Same day</span>
+        </div>
+        <span class="contact-card-arrow">→</span>
+      </a>
+
+      <!-- Instagram -->
+      <a class="contact-card contact-card-ig" href="https://instagram.com/ialbseats" target="_blank" rel="noopener">
+        <div class="contact-card-icon" style="color:#C13584;border-color:rgba(193,53,132,.35)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </div>
+        <div class="contact-card-body">
+          <span class="contact-card-label">Instagram</span>
+          <span class="contact-card-value">@ialbseats</span>
+          <span class="contact-card-note">DMs welcome · Follow for access drops</span>
+        </div>
+        <span class="contact-card-arrow">→</span>
+      </a>
+
+    </div>
+
+    <p style="text-align:center;font-size:.72rem;color:var(--muted);letter-spacing:.05em;margin-top:48px">Response time: within 2 hours · Mon – Sat · All enquiries handled personally</p>
   </div>
 </section>
 
