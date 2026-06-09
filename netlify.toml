@@ -1,0 +1,5 @@
+# IALB Seats — Netlify Configuration
+ 
+[build]
+  publish = "."
+ 
