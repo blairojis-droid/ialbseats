@@ -2,13 +2,10 @@
 <html lang="en">
 <head><meta charset="utf-8"/><title>IALB Seats</title></head>
 <body>
-<!--
-  IMPORTANT: Do not delete this file.
-  Netlify's build bot scans HTML files to register forms.
-  This file ensures the "request" form is always detected.
--->
-<form name="request" data-netlify="true" netlify-honeypot="bot-field" hidden>
+<!-- Netlify form detection file — do not delete -->
+<form name="request" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display:none">
   <input type="hidden" name="form-name" value="request" />
+  <input type="hidden" name="subject"   value="New Enquiry — IALB Seats" />
   <input name="bot-field" />
   <input type="text"     name="name" />
   <input type="email"    name="email" />
