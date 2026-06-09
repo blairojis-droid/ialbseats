@@ -710,10 +710,9 @@ details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
         </div>
       </div>
       <div class="form-panel">
-        <form name="request" id="enquiryForm" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name"  value="request" />
-          <input type="hidden" name="_subject"   value="New Enquiry — IALB Seats" />
-          <p class="hidden"><label>Do not fill: <input name="bot-field" /></label></p>
+        <form id="enquiryForm" name="request" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="request" />
+          <p class="hidden"><label>Do not fill this out: <input name="bot-field" /></label></p>
           <div class="form-grid">
             <div class="form-field">
               <label for="f-name">Full Name *</label>
@@ -729,7 +728,7 @@ details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
             </div>
             <div class="form-field">
               <label for="f-event">Experience / Event *</label>
-              <input id="f-event" required type="text" name="event" id="eventField" placeholder="e.g. Wimbledon, Monaco GP…" />
+              <input id="f-event" required type="text" name="event" placeholder="e.g. Wimbledon, Monaco GP…" />
             </div>
             <div class="form-field">
               <label for="f-date">Date &amp; Location *</label>
@@ -772,7 +771,7 @@ details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
             <p style="font-size:.78rem;color:var(--gold2);letter-spacing:.04em;margin:0;">◆ &nbsp;Enquiry received. We will respond personally within 2 hours.</p>
           </div>
           <div id="formError" style="display:none;margin-top:24px;padding:20px 24px;border:1px solid #c0392b;background:rgba(192,57,43,0.08);">
-            <p style="font-size:.78rem;color:#e74c3c;letter-spacing:.04em;margin:0;">Something went wrong. Please try the Email button or contact us directly at info@ialbseats.com</p>
+            <p style="font-size:.78rem;color:#e74c3c;letter-spacing:.04em;margin:0;">Something went wrong. Please use the Email button below or contact us directly at info@ialbseats.com</p>
           </div>
           <p class="form-legal">By submitting this enquiry you confirm the information provided is accurate. IALB Seats does not share your details with third parties. All access is confirmed in writing before any payment is requested.</p>
         </form>
@@ -821,6 +820,7 @@ details.faq[open] summary::after{transform:rotate(45deg);color:var(--gold)}
   </div>
 </footer>
 
+
 <script>
 // ── Header scroll ──
 const hdr = document.querySelector('.site-header');
@@ -843,69 +843,26 @@ if (tog && nav) {
 // ── Prefill form from experience links ──
 document.querySelectorAll('[data-prefill]').forEach(el => {
   el.addEventListener('click', () => {
-    const f = document.getElementById('f-event') || document.querySelector('[name="event"]');
+    const f = document.getElementById('f-event');
     if (f && el.dataset.prefill) f.value = el.dataset.prefill;
   });
 });
-
-// ── Netlify form submission via fetch ──
-const form        = document.getElementById('enquiryForm');
-const submitBtn   = document.getElementById('submitBtn');
-const submitLabel = document.getElementById('submitLabel');
-const successBox  = document.getElementById('formSuccess');
-const errorBox    = document.getElementById('formError');
-
-if (form) {
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    successBox.style.display = 'none';
-    errorBox.style.display   = 'none';
-    submitBtn.disabled       = true;
-    submitLabel.textContent  = 'Sending…';
-
-    try {
-      const data = new FormData(form);
-      const body = new URLSearchParams(data).toString();
-
-      const res = await fetch('/', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body:    body,
-      });
-
-      if (res.ok) {
-        successBox.style.display = 'block';
-        form.reset();
-        successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      } else {
-        throw new Error('Status ' + res.status);
-      }
-    } catch (err) {
-      errorBox.style.display = 'block';
-      console.error('Form submission error:', err);
-    } finally {
-      submitBtn.disabled      = false;
-      submitLabel.textContent = 'Submit Enquiry';
-    }
-  });
-}
 
 // ── Mailto fallback ──
 const mb = document.getElementById('mailtoBtn');
 if (mb) {
   mb.addEventListener('click', () => {
-    const g  = n => (document.querySelector('[name="' + n + '"]') || {}).value || '';
-    const ev = g('event');
+    const g  = id => (document.getElementById(id) || {}).value || '';
+    const ev = g('f-event');
     const body = [
-      'Name: '           + g('name'),
-      'Email: '          + g('email'),
-      g('phone')  ? 'WhatsApp: '  + g('phone')  : '',
-      'Experience: '     + ev,
-      'Date/Location: '  + g('details'),
-      'Guests: '         + g('quantity'),
-      g('budget') ? 'Budget: '    + g('budget') : '',
-      g('notes')  ? 'Notes:\n'    + g('notes')  : '',
+      'Name: '          + g('f-name'),
+      'Email: '         + g('f-email'),
+      g('f-phone')  ? 'WhatsApp: ' + g('f-phone')  : '',
+      'Experience: '    + ev,
+      'Date/Location: ' + g('f-date'),
+      'Guests: '        + g('f-qty'),
+      g('f-budget') ? 'Budget: '   + g('f-budget') : '',
+      g('f-notes')  ? 'Notes:\n'  + g('f-notes')  : '',
     ].filter(Boolean).join('\n');
     window.location.href = 'mailto:info@ialbseats.com?subject=' +
       encodeURIComponent('Access Enquiry: ' + (ev || 'New Enquiry')) +
