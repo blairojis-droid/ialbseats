@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"/></head>
+<body>
+<!-- This file exists solely so Netlify's build bot detects the form. Do not delete. -->
+<form name="request" netlify netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="request" />
+  <input name="bot-field" />
+  <input type="text"  name="name" />
+  <input type="email" name="email" />
+  <input type="tel"   name="phone" />
+  <input type="text"  name="event" />
+  <input type="text"  name="details" />
+  <select name="quantity"></select>
+  <input type="text"  name="budget" />
+  <textarea name="notes"></textarea>
+  <input type="checkbox" name="consent" value="yes" />
+</form>
+</body>
+</html>
