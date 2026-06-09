@@ -1,5 +1,9 @@
 # IALB Seats — Netlify Configuration
- 
+
 [build]
   publish = "."
- 
+
+[[redirects]]
+  from = "/success"
+  to   = "/success.html"
+  status = 200
